@@ -81,10 +81,15 @@ namespace Tomogachi
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
 
+        void TestButtonClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NewTestPage());
+
+        }
+
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            //Navigation.PushAsync(new MainPage());
 
             //hunger += 1;
 

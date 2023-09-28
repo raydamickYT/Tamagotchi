@@ -23,6 +23,9 @@
     <MauiXaml Update="NewContent1.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="NewTestPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Platforms\Windows\App.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

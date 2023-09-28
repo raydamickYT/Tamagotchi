@@ -45,7 +45,8 @@
                 x:Name="CounterBtn"
                 Text="Cloud"
                 SemanticProperties.Hint="Maakt een creature in de cloud aan"
-                Clicked="Button_Clicked" Grid.Row="0" Grid.Column="0" />
+                Clicked="TestButtonClicked" Grid.Row="0" Grid.Column="0" />
+                
                 
             </Grid>
                 <tomogachi:NewContent1 ViewName="MainPage"/>

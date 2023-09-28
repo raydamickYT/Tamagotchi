@@ -38,6 +38,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.NewContent1.xaml
 build_metadata.AdditionalFiles.TargetPath = NewContent1.xaml
 build_metadata.AdditionalFiles.RelativePath = NewContent1.xaml
 
+[D:/Gihub/Tamagotchi/Tomogachi/NewTestPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.NewTestPage.xaml
+build_metadata.AdditionalFiles.TargetPath = NewTestPage.xaml
+build_metadata.AdditionalFiles.RelativePath = NewTestPage.xaml
+
 [D:/Gihub/Tamagotchi/Tomogachi/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.Resources.Styles.Colors.xaml
