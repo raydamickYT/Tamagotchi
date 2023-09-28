@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "FLPKb7AWPyjBW1Xk8HZJEIxQm6BF5hllbtYCpxUhvLHUmw0SiSeLBXe0YUgdcsM8zvTdpPWnni4QQk2Qv53L9Q==",
+  "success": false,
+  "projectFilePath": "D:\\Gihub\\Tamagotchi\\Tomogachi\\Tomogachi.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1012",
+      "level": "Error",
+      "message": "Platform version is not present for one or more target frameworks, even though they have specified a platform: net7.0-android, net7.0-ios, net7.0-maccatalyst"
+    }
+  ]
+}
