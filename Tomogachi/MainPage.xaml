@@ -20,7 +20,7 @@
                 Text="{Binding MyCreature.Name, Mode=OneWay}"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="FillAndExpand"
+                HorizontalOptions="Center"
                 BackgroundColor="Magenta"/>
 
             <Label
@@ -30,18 +30,25 @@
                 TextColor="White"
                 HorizontalOptions="Center" />
 
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+
+                </Grid.ColumnDefinitions>
+
+                
                 <Button
                 x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="Button_Clicked"
-                HorizontalOptions="Center" />
-
-            </HorizontalStackLayout>
-            <tomogachi:NewContent1 MyAmazing="Change the value of the property."/>
-
+                Text="Cloud"
+                SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                Clicked="Button_Clicked" Grid.Row="0" Grid.Column="0" />
+                
+            </Grid>
+                <tomogachi:NewContent1 ViewName="MainPage"/>
         </VerticalStackLayout>
     </ScrollView>
 

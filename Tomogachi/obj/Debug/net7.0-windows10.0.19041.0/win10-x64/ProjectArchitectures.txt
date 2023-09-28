@@ -1,1 +1,1 @@
-D:\GitHub\Tomogachi\Tomogachi\Tomogachi.csproj;x64
+D:\Gihub\Tamagotchi\Tomogachi\Tomogachi.csproj;x64

@@ -1,11 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Timers;
+using System.Diagnostics;
 
 namespace Tomogachi
 {
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
+        //timer
+        private System.Timers.Timer updateTimer;
+
         int count = 0;
         public string HeaderTitle { get; set; } = "Why hello there";
 
@@ -30,8 +34,31 @@ namespace Tomogachi
         {
             BindingContext = this;
             InitializeComponent();
+
+            updateTimer = new System.Timers.Timer
+            {
+                Interval = 1000,
+                AutoReset = true
+            };
+
+            updateTimer.Elapsed += OnUpdateTimerElapsed;
+            updateTimer.Start();
         }
 
+        private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            //updateTimer.Stop();
+        }
+
+        protected void OnSleep()
+        {
+            var previousTime = DateTime.Now;
+            //time
+            var nowTime = DateTime.Now;
+
+            TimeSpan elapsed = nowTime - previousTime;
+
+        }
         private async void OnCounterClicked(object sender, EventArgs e)
         {
             count += 1;
@@ -54,6 +81,7 @@ namespace Tomogachi
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
 
+
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
             //Navigation.PushAsync(new MainPage());
@@ -71,12 +99,16 @@ namespace Tomogachi
             {
                 MyCreature = new Creature()
                 {
-                    Name = "Vincent",
+                    Name = "Mannetje",
                     Hunger = 1.0f,
                     Thirst = 0.1f,
                 };
                 var result = await dataStore.CreateItem(MyCreature);
-                var testItem = dataStore.ReadItem("1");
+                var testItem = await dataStore.ReadItem("1");
+                Debug.WriteLine(testItem.Name);
+                //MyCreature = testItem.Result;
+
+                // kom hier later op terug
             }
         }
     }

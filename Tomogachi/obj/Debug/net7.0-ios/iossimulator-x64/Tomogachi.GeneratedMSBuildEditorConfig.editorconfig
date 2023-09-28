@@ -8,39 +8,39 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Tomogachi
-build_property.ProjectDir = D:\GitHub\Tomogachi\Tomogachi\
+build_property.ProjectDir = D:\Gihub\Tamagotchi\Tomogachi\
 
-[D:/GitHub/Tomogachi/Tomogachi/App.xaml]
+[D:/Gihub/Tamagotchi/Tomogachi/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[D:/GitHub/Tomogachi/Tomogachi/AppShell.xaml]
+[D:/Gihub/Tamagotchi/Tomogachi/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/GitHub/Tomogachi/Tomogachi/MainPage.xaml]
+[D:/Gihub/Tamagotchi/Tomogachi/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[D:/GitHub/Tomogachi/Tomogachi/NewContent1.xaml]
+[D:/Gihub/Tamagotchi/Tomogachi/NewContent1.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.NewContent1.xaml
 build_metadata.AdditionalFiles.TargetPath = NewContent1.xaml
 build_metadata.AdditionalFiles.RelativePath = NewContent1.xaml
 
-[D:/GitHub/Tomogachi/Tomogachi/Resources/Styles/Colors.xaml]
+[D:/Gihub/Tamagotchi/Tomogachi/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[D:/GitHub/Tomogachi/Tomogachi/Resources/Styles/Styles.xaml]
+[D:/Gihub/Tamagotchi/Tomogachi/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
