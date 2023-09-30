@@ -29,13 +29,13 @@
     <AppXManifest Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-09-28T13:44:42.294</Modified>
+      <Modified>2023-09-30T17:34:09.129</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-09-28T13:44:42.143</Modified>
+      <Modified>2023-09-30T17:34:08.981</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Tomogachi.runtimeconfig.json">
       <PackagePath>Tomogachi.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Tomogachi.dll">
       <PackagePath>Tomogachi.dll</PackagePath>
-      <Modified>2023-09-28T13:44:41.542</Modified>
+      <Modified>2023-09-30T17:34:08.348</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Tomogachi.exe</PackagePath>
-      <Modified>2023-09-28T13:44:41.547</Modified>
+      <Modified>2023-09-30T17:34:08.353</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Tomogachi.deps.json">
       <PackagePath>Tomogachi.deps.json</PackagePath>

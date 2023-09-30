@@ -1,8 +1,10 @@
-﻿namespace Tomogachi
+﻿using System.Diagnostics;
+
+namespace Tomogachi
 {
     public partial class App : Application
     {
-        string ExitedTimeStamp = string.Empty;
+        string ExitedTimeStampKey = "ExitedTimeStamp";
         public App()
         {
             DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteCreatureDataStore());
@@ -14,21 +16,25 @@
 
         protected override void OnSleep()
         {
+            Debug.Write("app sleep");
             base.OnSleep();{
 
             }
             DateTime currentDateTime = DateTime.Now;
-            Preferences.Set(ExitedTimeStamp, currentDateTime.ToString("o")); //o is a round trip format specifier
+            Preferences.Set(ExitedTimeStampKey, currentDateTime.ToString("o")); //o is a round trip format specifier 
         }
 
         protected override void OnResume()
         {
+            Debug.Write("app awake");
             base.OnResume();
-            string exitTimestampString = Preferences.Get(ExitedTimeStamp, null);
+            string exitTimestampString = Preferences.Get(ExitedTimeStampKey, null);
+            Debug.WriteLine("Exited Time: " + ExitedTimeStampKey);
             if(exitTimestampString != null)
             {
                 DateTime exitedTimeStamp = DateTime.Parse(exitTimestampString, null, System.Globalization.DateTimeStyles.RoundtripKind);
                 TimeSpan elapsedTime = DateTime.Now - exitedTimeStamp;
+               // Debug.WriteLine(message: "Elapsed Time: " + elapsedTime.ToString());
 
                 //hier kan je iets doen met de elapsed time. bijv een property updaten
             }

@@ -2,19 +2,22 @@
 using System.ComponentModel;
 using System.Timers;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Tomogachi
 {
     public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         //timer
         private System.Timers.Timer updateTimer;
 
         int count = 0;
         public string HeaderTitle { get; set; } = "Why hello there";
 
-        private float Hunger { get; set; } = .0f;
-        public string HungerText => Hunger switch
+        public Creature MyCreature { get; set; } = new Creature();
+        public float Hunger { get; set; } = 1f;
+        public string HungerText => MyCreature.Hunger switch
         {
             <= 0 => "Not Hungry",
             < .25f => "A little Hungry",
@@ -22,10 +25,20 @@ namespace Tomogachi
             < .75f => "Hungry",
             < 1 => "Hangry",
             >= 1.0f => "Starving",
-            _ => throw new ArgumentException("Not Possible", Hunger.ToString())
+            _ => throw new ArgumentException("Not Possible", MyCreature.Hunger.ToString())
         };
 
-        public Creature MyCreature { get; set; } = new Creature();
+        public string ThirstText => MyCreature.Thirst switch
+        {
+            <= 0 => "Not Thirsty",
+            < .25f => "A little Thirsty",
+            < .50f => "Moderately thristy",
+            < .75f => "THIRSTY",
+            < 1 => "THARSTY",
+            >= 1.0f => "Dehydrated",
+            _ => throw new ArgumentException("Not Possible", MyCreature.Thirst.ToString())
+        };
+
 
         public string CreatureName => MyCreature.Name;
 
@@ -35,8 +48,15 @@ namespace Tomogachi
             BindingContext = this;
             InitializeComponent();
 
+            string creatureString = JsonConvert.SerializeObject(MyCreature);
+
+            Preferences.Set("MyCreature", creatureString);
+
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+
             updateTimer = new System.Timers.Timer
             {
+                //in ms
                 Interval = 1000,
                 AutoReset = true
             };
@@ -47,8 +67,14 @@ namespace Tomogachi
 
         private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
         {
-            //updateTimer.Stop();
+            MyCreature.Hunger -= .1f;
+            MyCreature.Thirst += .1f;
+            OnPropertyChanged(nameof(HungerText));
+            OnPropertyChanged(nameof(ThirstText));
+
         }
+
+
 
         protected void OnSleep()
         {
@@ -84,37 +110,31 @@ namespace Tomogachi
         void TestButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NewTestPage());
+            //MyCreature.Hunger -= .1f;
 
         }
-
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-
-            //hunger += 1;
-
-            string creatureString = JsonConvert.SerializeObject(MyCreature);
-            Console.Write(creatureString);
-
-            Preferences.Set("MyCreature", creatureString);
-
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
-            MyCreature = null; //dataStore.ReadItem();
-            if (MyCreature == null)
-            {
-                MyCreature = new Creature()
-                {
-                    Name = "Mannetje",
-                    Hunger = 1.0f,
-                    Thirst = 0.1f,
-                };
+            //MyCreature = null; //dataStore.ReadItem();
+            //if (MyCreature == null)
+            //{
+            //    MyCreature = new Creature()
+            //    {
+            //        Name = "Mannetje",
+            //        Hunger = 1.0f,
+            //        Thirst = 0.1f,
+            //    };
+            //    //MyCreature = testItem.Result;
+
+            //    // kom hier later op terug
+            //}
                 var result = await dataStore.CreateItem(MyCreature);
                 var testItem = await dataStore.ReadItem("1");
                 Debug.WriteLine(testItem.Name);
-                //MyCreature = testItem.Result;
-
-                // kom hier later op terug
-            }
         }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

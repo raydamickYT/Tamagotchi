@@ -8,8 +8,8 @@ namespace Tomogachi
 {
     public class Creature : INotifyPropertyChanged
     {
-        public float Hunger { get; set; } = 0;
-        public float Thirst { get; set; } = 0;
+        public float Hunger { get; set; } = 1;
+        public float Thirst { get; set; } = .1f;
         public string Name { get; set; } = "Vincent";
         public int Id { get; set; } = 1;
 

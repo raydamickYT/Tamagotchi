@@ -17,7 +17,14 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="{Binding MyCreature.Name, Mode=OneWay}"
+                Text="{Binding HungerText, Mode=OneWay}"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center"
+                BackgroundColor="Magenta"/>
+            
+            <Label
+                Text="{Binding ThirstText, Mode=OneWay}"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center"
@@ -37,7 +44,7 @@
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
-
+                    <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
 
                 
@@ -46,8 +53,13 @@
                 Text="Cloud"
                 SemanticProperties.Hint="Maakt een creature in de cloud aan"
                 Clicked="TestButtonClicked" Grid.Row="0" Grid.Column="0" />
-                
-                
+                <Button
+                x:Name="CreateCreature"
+                Text="MakeCreature"
+                SemanticProperties.Hint="Maakt een creature in de local db aan"
+                Clicked="Button_Clicked" Grid.Row="0" Grid.Column="1" />
+
+
             </Grid>
                 <tomogachi:NewContent1 ViewName="MainPage"/>
         </VerticalStackLayout>
