@@ -12,11 +12,12 @@ namespace Tomogachi
         //timer
         private System.Timers.Timer updateTimer;
 
+        App app;
+
         int count = 0;
         public string HeaderTitle { get; set; } = "Why hello there";
 
-        public Creature MyCreature { get; set; } = new Creature();
-        public float Hunger { get; set; } = 1f;
+        public static Creature MyCreature { get; set; } = new Creature();
         public string HungerText => MyCreature.Hunger switch
         {
             <= 0 => "Not Hungry",
@@ -39,9 +40,36 @@ namespace Tomogachi
             _ => throw new ArgumentException("Not Possible", MyCreature.Thirst.ToString())
         };
 
+        private float _hungerLevel;
+
+        public float HungerLevel
+        {
+            get => _hungerLevel;
+            set
+            {
+                if (_hungerLevel != value)
+                {
+                    _hungerLevel = value;
+                    OnPropertyChanged();  // This notifies the UI of the change.
+                }
+            }
+        }
+        private float _thirstLevel;
+
+        public float ThirstLevel
+        {
+            get => _thirstLevel;
+            set
+            {
+                if (_thirstLevel != value)
+                {
+                    _thirstLevel = value;
+                    OnPropertyChanged();  // This notifies the UI of the change.
+                }
+            }
+        }
 
         public string CreatureName => MyCreature.Name;
-
 
         public MainPage()
         {
@@ -63,18 +91,19 @@ namespace Tomogachi
 
             updateTimer.Elapsed += OnUpdateTimerElapsed;
             updateTimer.Start();
+
         }
 
         private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
         {
-            MyCreature.Hunger -= .1f;
-            MyCreature.Thirst += .1f;
-            OnPropertyChanged(nameof(HungerText));
-            OnPropertyChanged(nameof(ThirstText));
+            //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
+            MyCreature.Hunger -= 1f / 600f;
+            HungerLevel = MyCreature.Hunger;
+            MyCreature.Thirst += 1f / 600f;
+            ThirstLevel = MyCreature.Thirst;
+            Debug.WriteLine(ThirstText);
 
         }
-
-
 
         protected void OnSleep()
         {
@@ -109,7 +138,7 @@ namespace Tomogachi
 
         void TestButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NewTestPage());
+            Navigation.PushAsync(new NewTestPage(this));
             //MyCreature.Hunger -= .1f;
 
         }
@@ -130,9 +159,9 @@ namespace Tomogachi
 
             //    // kom hier later op terug
             //}
-                var result = await dataStore.CreateItem(MyCreature);
-                var testItem = await dataStore.ReadItem("1");
-                Debug.WriteLine(testItem.Name);
+            var result = await dataStore.CreateItem(MyCreature);
+            var testItem = await dataStore.ReadItem("1");
+            Debug.WriteLine(testItem.Name);
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

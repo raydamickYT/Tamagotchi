@@ -6,29 +6,65 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
+            Spacing="0"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Start">
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
 
+                <ProgressBar
+                x:Name="HungerBar"
+                Progress="{Binding HungerLevel, Mode=OneWay}"
+                SemanticProperties.HeadingLevel="Level2"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="30"
+                WidthRequest="200"
+                ProgressColor="Red"
+                Grid.Row="1" Grid.Column="0"/>
+                <Label
+                Text="{Binding HungerText, Mode=OneWay}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                FontSize="16"
+                BackgroundColor="Transparent"
+                Grid.Row="0" Grid.Column="0"/>
+
+                <ProgressBar
+                x:Name="ThirstBar"
+                Progress="{Binding ThirstLevel, Mode=OneWay}"
+                HorizontalOptions="StartAndExpand"
+                HeightRequest="20"
+                WidthRequest="150"
+                ProgressColor="Blue"
+                Grid.Row="3" Grid.Column="0"/>
+                
+                <Label
+                Text="{Binding ThirstText, Mode=OneWay}"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="16"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="Transparent"
+                Grid.Row="2" Grid.Column="0"/>
+
+
+
+            </Grid>
             <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="{Binding HungerText, Mode=OneWay}"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center"
-                BackgroundColor="Magenta"/>
-            
-            <Label
-                Text="{Binding ThirstText, Mode=OneWay}"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center"
-                BackgroundColor="Magenta"/>
 
             <Label
                 Text="Test"
@@ -43,14 +79,13 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                
                 <Button
                 x:Name="CounterBtn"
-                Text="Cloud"
+                Text="Feed The Creature"
                 SemanticProperties.Hint="Maakt een creature in de cloud aan"
                 Clicked="TestButtonClicked" Grid.Row="0" Grid.Column="0" />
                 <Button
@@ -61,7 +96,7 @@
 
 
             </Grid>
-                <tomogachi:NewContent1 ViewName="MainPage"/>
+            <tomogachi:NewContent1 ViewName="MainPage"/>
         </VerticalStackLayout>
     </ScrollView>
 
