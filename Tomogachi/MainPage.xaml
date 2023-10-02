@@ -6,21 +6,33 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="0"
+            Spacing="5"
             Padding="30,0"
-            VerticalOptions="Start">
+            VerticalOptions="Start"
+            BackgroundColor="Gainsboro">
             
-            <Grid>
+            <Grid Padding="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
+                <Label
+                Text="{Binding HungerText, Mode=OneWay}"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="CenterAndExpand"
+                FontSize="16"
+                BackgroundColor="Transparent"
+                Grid.Row="0" Grid.Column="0"/>
+                
                 <ProgressBar
                 x:Name="HungerBar"
                 Progress="{Binding HungerLevel, Mode=OneWay}"
@@ -29,14 +41,31 @@
                 HeightRequest="30"
                 WidthRequest="200"
                 ProgressColor="Red"
+                    BackgroundColor="Black"
                 Grid.Row="1" Grid.Column="0"/>
+                <Button
+                    x:Name="CounterBtn2"
+                    Text="Feed The Creature"
+                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    BackgroundColor="Transparent"
+                    Clicked="TestButtonClicked" Grid.Row="1" Grid.Column="0" />
+                
+                <Image
+                Source="food.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HorizontalOptions="Start"
+                HeightRequest="20"
+                WidthRequest="20"
+                Grid.Row="1" Grid.Column="1"/>
+                
                 <Label
-                Text="{Binding HungerText, Mode=OneWay}"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"
+                Text="{Binding ThirstText, Mode=OneWay}"
+                SemanticProperties.HeadingLevel="Level2"
                 FontSize="16"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand"
                 BackgroundColor="Transparent"
-                Grid.Row="0" Grid.Column="0"/>
+                Grid.Row="2" Grid.Column="0"/>
 
                 <ProgressBar
                 x:Name="ThirstBar"
@@ -45,29 +74,35 @@
                 HeightRequest="20"
                 WidthRequest="150"
                 ProgressColor="Blue"
+                    BackgroundColor="Black"
                 Grid.Row="3" Grid.Column="0"/>
                 
-                <Label
-                Text="{Binding ThirstText, Mode=OneWay}"
-                SemanticProperties.HeadingLevel="Level2"
-                FontSize="16"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand"
-                BackgroundColor="Transparent"
-                Grid.Row="2" Grid.Column="0"/>
+                <Button
+                    x:Name="CounterBtn3"
+                    Text=""
+                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    BackgroundColor="Transparent"
+                    Clicked="TestButtonClicked" Grid.Row="3" Grid.Column="0" />
 
-
+                <Image
+                Source="thirst.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HorizontalOptions="Start"
+                HeightRequest="20"
+                WidthRequest="20"
+                Grid.Row="3" Grid.Column="1"/>
 
             </Grid>
+
             <Image
-                Source="dotnet_bot.png"
+                Source="test.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
-                HorizontalOptions="Center" />
-
+                HorizontalOptions="Center" 
+                Grid.Row="4" Grid.Column="2"/>
 
             <Label
-                Text="Test"
+                Text="Creature^"
                 SemanticProperties.HeadingLevel="Level2"
                 FontSize="32"
                 TextColor="White"
@@ -75,6 +110,7 @@
 
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
@@ -87,12 +123,12 @@
                 x:Name="CounterBtn"
                 Text="Feed The Creature"
                 SemanticProperties.Hint="Maakt een creature in de cloud aan"
-                Clicked="TestButtonClicked" Grid.Row="0" Grid.Column="0" />
+                Clicked="TestButtonClicked" Grid.Row="1" Grid.Column="0" />
                 <Button
                 x:Name="CreateCreature"
                 Text="MakeCreature"
                 SemanticProperties.Hint="Maakt een creature in de local db aan"
-                Clicked="Button_Clicked" Grid.Row="0" Grid.Column="1" />
+                Clicked="Button_Clicked" Grid.Row="1" Grid.Column="1" />
 
 
             </Grid>

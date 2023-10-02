@@ -4,8 +4,11 @@
              xmlns:tomogachi="clr-namespace:Tomogachi"
              x:Class="Tomogachi.NewTestPage"
              Title="NewTestPage">
-    <VerticalStackLayout>
-        <tomogachi:NewContent1 ViewName="Feeding"/>
+    <VerticalStackLayout 
+        Spacing="0"
+        Padding="30"
+        BackgroundColor="Gainsboro"
+        VerticalOptions="Start">
         
         <Grid>
             <Grid.RowDefinitions>

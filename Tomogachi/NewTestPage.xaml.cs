@@ -16,7 +16,7 @@ public partial class NewTestPage : ContentPage
     {
         if (MainPage.MyCreature.Hunger - .1f! < 0)
         {
-            MainPage.MyCreature.Hunger -= .1f;
+            MainPage.MyCreature.Hunger += 1f;
         }
     }
 }

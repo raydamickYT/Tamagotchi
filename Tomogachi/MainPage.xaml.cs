@@ -99,21 +99,12 @@ namespace Tomogachi
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
             MyCreature.Hunger -= 1f / 600f;
             HungerLevel = MyCreature.Hunger;
-            MyCreature.Thirst += 1f / 600f;
+            MyCreature.Thirst -= 1f / 600f;
             ThirstLevel = MyCreature.Thirst;
             Debug.WriteLine(ThirstText);
 
         }
 
-        protected void OnSleep()
-        {
-            var previousTime = DateTime.Now;
-            //time
-            var nowTime = DateTime.Now;
-
-            TimeSpan elapsed = nowTime - previousTime;
-
-        }
         private async void OnCounterClicked(object sender, EventArgs e)
         {
             count += 1;
@@ -139,7 +130,6 @@ namespace Tomogachi
         void TestButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NewTestPage(this));
-            //MyCreature.Hunger -= .1f;
 
         }
 

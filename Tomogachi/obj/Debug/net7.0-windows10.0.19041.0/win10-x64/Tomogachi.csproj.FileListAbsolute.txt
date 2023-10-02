@@ -648,3 +648,7 @@ D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qua
 D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pngwing.scale-100.png
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\test.scale-100.png
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\food.scale-100.png
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\thirst.scale-100.png

@@ -29,13 +29,13 @@
     <AppXManifest Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-10-01T14:09:49.434</Modified>
+      <Modified>2023-10-02T09:59:48.374</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-10-01T14:09:49.239</Modified>
+      <Modified>2023-10-02T09:59:48.222</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Tomogachi.runtimeconfig.json">
       <PackagePath>Tomogachi.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Tomogachi.dll">
       <PackagePath>Tomogachi.dll</PackagePath>
-      <Modified>2023-10-01T14:09:48.624</Modified>
+      <Modified>2023-10-02T09:59:47.602</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Tomogachi.exe</PackagePath>
-      <Modified>2023-10-01T14:09:48.629</Modified>
+      <Modified>2023-10-02T09:59:47.608</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Tomogachi.deps.json">
       <PackagePath>Tomogachi.deps.json</PackagePath>
@@ -971,207 +971,223 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2023-09-28T10:35:56.264</Modified>
+      <Modified>2023-10-02T09:47:49.026</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.264</Modified>
+      <Modified>2023-10-02T09:47:49.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.265</Modified>
+      <Modified>2023-10-02T09:47:49.186</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.265</Modified>
+      <Modified>2023-10-02T09:47:49.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.265</Modified>
+      <Modified>2023-10-02T09:47:49.206</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.268</Modified>
+      <Modified>2023-10-02T09:47:49.253</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.268</Modified>
+      <Modified>2023-10-02T09:47:49.065</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.268</Modified>
+      <Modified>2023-10-02T09:47:49.067</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.269</Modified>
+      <Modified>2023-10-02T09:47:49.075</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.269</Modified>
+      <Modified>2023-10-02T09:47:49.068</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.269</Modified>
+      <Modified>2023-10-02T09:47:49.070</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.269</Modified>
+      <Modified>2023-10-02T09:47:49.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.269</Modified>
+      <Modified>2023-10-02T09:47:49.056</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.270</Modified>
+      <Modified>2023-10-02T09:47:49.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.270</Modified>
+      <Modified>2023-10-02T09:47:49.058</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.270</Modified>
+      <Modified>2023-10-02T09:47:49.059</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.270</Modified>
+      <Modified>2023-10-02T09:47:49.033</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.270</Modified>
+      <Modified>2023-10-02T09:47:49.035</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.271</Modified>
+      <Modified>2023-10-02T09:47:49.037</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.271</Modified>
+      <Modified>2023-10-02T09:47:49.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.271</Modified>
+      <Modified>2023-10-02T09:47:49.042</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.271</Modified>
+      <Modified>2023-10-02T09:47:49.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.272</Modified>
+      <Modified>2023-10-02T09:47:49.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.272</Modified>
+      <Modified>2023-10-02T09:47:49.053</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.272</Modified>
+      <Modified>2023-10-02T09:47:49.047</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.287</Modified>
+      <Modified>2023-10-02T09:47:49.049</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.288</Modified>
+      <Modified>2023-10-02T09:47:49.101</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.288</Modified>
+      <Modified>2023-10-02T09:47:49.105</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.288</Modified>
+      <Modified>2023-10-02T09:47:49.109</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.288</Modified>
+      <Modified>2023-10-02T09:47:49.115</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.289</Modified>
+      <Modified>2023-10-02T09:47:49.127</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.289</Modified>
+      <Modified>2023-10-02T09:47:49.087</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.289</Modified>
+      <Modified>2023-10-02T09:47:49.089</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.289</Modified>
+      <Modified>2023-10-02T09:47:49.091</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.290</Modified>
+      <Modified>2023-10-02T09:47:49.093</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.290</Modified>
+      <Modified>2023-10-02T09:47:49.099</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.290</Modified>
+      <Modified>2023-10-02T09:47:49.076</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.290</Modified>
+      <Modified>2023-10-02T09:47:49.078</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.293</Modified>
+      <Modified>2023-10-02T09:47:49.080</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.293</Modified>
+      <Modified>2023-10-02T09:47:49.082</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.297</Modified>
+      <Modified>2023-10-02T09:47:49.085</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.297</Modified>
+      <Modified>2023-10-02T09:47:49.131</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.297</Modified>
+      <Modified>2023-10-02T09:47:49.135</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.298</Modified>
+      <Modified>2023-10-02T09:47:49.141</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.298</Modified>
+      <Modified>2023-10-02T09:47:49.150</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.298</Modified>
+      <Modified>2023-10-02T09:47:49.173</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.298</Modified>
+      <Modified>2023-10-02T09:47:49.014</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.299</Modified>
+      <Modified>2023-10-02T09:47:49.020</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.299</Modified>
+      <Modified>2023-10-02T09:47:49.031</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.299</Modified>
+      <Modified>2023-10-02T09:47:49.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2023-09-28T10:35:56.300</Modified>
+      <Modified>2023-10-02T09:47:49.076</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\food.scale-100.png">
+      <PackagePath>food.scale-100.png</PackagePath>
+      <Modified>2023-10-02T09:17:14.574</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pngwing.scale-100.png">
+      <PackagePath>pngwing.scale-100.png</PackagePath>
+      <Modified>2023-10-02T09:18:25.855</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\test.scale-100.png">
+      <PackagePath>test.scale-100.png</PackagePath>
+      <Modified>2023-10-02T09:17:14.574</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\thirst.scale-100.png">
+      <PackagePath>thirst.scale-100.png</PackagePath>
+      <Modified>2023-10-02T09:18:25.855</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
