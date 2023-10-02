@@ -17,7 +17,7 @@ namespace Tomogachi
         int count = 0;
         public string HeaderTitle { get; set; } = "Why hello there";
 
-        public static Creature MyCreature { get; set; } = new Creature();
+        public Creature MyCreature { get; set; } = new Creature();
         public string HungerText => MyCreature.Hunger switch
         {
             <= 0 => "Not Hungry",
@@ -99,7 +99,7 @@ namespace Tomogachi
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
             MyCreature.Hunger -= 1f / 600f;
             HungerLevel = MyCreature.Hunger;
-            MyCreature.Thirst -= 1f / 600f;
+            MyCreature.Thirst -= 1 / 600f;
             ThirstLevel = MyCreature.Thirst;
             Debug.WriteLine(ThirstText);
 

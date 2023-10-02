@@ -2,7 +2,7 @@ namespace Tomogachi;
 
 public partial class NewContent1 : ContentView
 {
-    public static readonly BindableProperty MyAmazingProperty = BindableProperty.Create(nameof(ViewName), typeof(string), typeof(NewContent1)/*, propertyChanging:*/);
+    public static readonly BindableProperty MyAmazingProperty = BindableProperty.Create(nameof(ViewName), typeof(string), typeof(NewContent1));
 
     //Ctrl + .
 

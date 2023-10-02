@@ -1,75 +1,92 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tomogachi="clr-namespace:Tomogachi"
-             x:Class="Tomogachi.NewTestPage"
-             Title="NewTestPage">
-    <VerticalStackLayout 
-        Spacing="0"
-        Padding="30"
-        BackgroundColor="Gainsboro"
-        VerticalOptions="Start">
-        
+<ContentPage
+    x:Class="Tomogachi.NewTestPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tomogachi="clr-namespace:Tomogachi"
+    Title="NewTestPage">
+    <VerticalStackLayout Padding="5" BackgroundColor="Gainsboro">
+        <tomogachi:NewContent1 ViewName="Feeding" />
+
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="300" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <ProgressBar
-    x:Name="HungerBar"
-    Progress="{Binding HungerLevel, Mode=OneWay}"
-    SemanticProperties.HeadingLevel="Level2"
-    HorizontalOptions="FillAndExpand"
-    HeightRequest="30"
-    WidthRequest="200"
-    ProgressColor="Red"
-    Grid.Row="1" Grid.Column="0"/>
-    <Label
-    x:Name="HungerText"
-    Text="{Binding HungerText, Mode=OneWay}"
-    HorizontalOptions="CenterAndExpand"
-    VerticalOptions="CenterAndExpand"
-    FontSize="16"
-    BackgroundColor="Transparent"
-    Grid.Row="0" Grid.Column="0"/>
+                x:Name="HungerBar"
+                Grid.Row="0"
+                Grid.Column="0"
+                HeightRequest="10"
+                HorizontalOptions="FillAndExpand"
+                Progress="{Binding HungerLevel, Mode=OneWay}"
+                ProgressColor="Red"
+                SemanticProperties.HeadingLevel="Level2"
+                WidthRequest="200" />
 
-    <ProgressBar
-    x:Name="ThirstBar"
-    Progress="{Binding ThirstLevel, Mode=OneWay}"
-    HorizontalOptions="StartAndExpand"
-    HeightRequest="20"
-    WidthRequest="150"
-    ProgressColor="Blue"
-    Grid.Row="3" Grid.Column="0"/>
-            <Label
-    x:Name="ThirstText"
-    Text="{Binding ThirstText, Mode=OneWay}"
-    SemanticProperties.HeadingLevel="Level2"
-    FontSize="16"
-    VerticalOptions="CenterAndExpand"
-    HorizontalOptions="CenterAndExpand"
-    BackgroundColor="Transparent"
-    Grid.Row="2" Grid.Column="0"/>
+            <Image
+                Grid.Row="0"
+                Grid.Column="1"
+                HeightRequest="20"
+                HorizontalOptions="Start"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="food.png"
+                WidthRequest="20" />
+
+
+            <ProgressBar
+                x:Name="ThirstBar"
+                Grid.Row="1"
+                Grid.Column="0"
+                HeightRequest="20"
+                HorizontalOptions="StartAndExpand"
+                Progress="{Binding ThirstLevel, Mode=OneWay}"
+                ProgressColor="Blue"
+                WidthRequest="150" />
+
+
+            <Image
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="20"
+                HorizontalOptions="Start"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="thirst.png"
+                WidthRequest="20" />
         </Grid>
-        
-    <Image
-        Source="dotnet_bot.png"
-        SemanticProperties.Description="Cute dot net bot waving hi to you!"
-        HeightRequest="200"
-                HorizontalOptions="Center" />
 
-    <Button 
-        x:Name="Food"
-        Text="Food"
-        HorizontalOptions="Start"
-        SemanticProperties.Hint="use this for replenteshing the hunger"
-        Clicked="OnbuttonClicked"/>
+        <Image
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            SemanticProperties.Description="Cute dot net bot waving hi to you!"
+            Source="food.png" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.RowSpacing set="20" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="Food"
+                Grid.Row="1"
+                Grid.Column="0"
+                Clicked="OnbuttonClicked"
+                HorizontalOptions="Start"
+                SemanticProperties.Hint="use this for replenteshing the hunger"
+                Text="Food" />
+
+        </Grid>
 
     </VerticalStackLayout>
 </ContentPage>

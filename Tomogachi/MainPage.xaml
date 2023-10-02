@@ -1,138 +1,154 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:tomogachi="clr-namespace:Tomogachi"
-             x:Class="Tomogachi.MainPage">
+<ContentPage
+    x:Class="Tomogachi.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tomogachi="clr-namespace:Tomogachi">
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="5"
             Padding="30,0"
-            VerticalOptions="Start"
-            BackgroundColor="Gainsboro">
-            
+            BackgroundColor="Gainsboro"
+            Spacing="5"
+            VerticalOptions="Start">
+
             <Grid Padding="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <Label
-                Text="{Binding HungerText, Mode=OneWay}"
-                HorizontalOptions="StartAndExpand"
-                VerticalOptions="CenterAndExpand"
-                FontSize="16"
-                BackgroundColor="Transparent"
-                Grid.Row="0" Grid.Column="0"/>
-                
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    FontSize="16"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding HungerText, Mode=OneWay}"
+                    VerticalOptions="CenterAndExpand" />
+
                 <ProgressBar
-                x:Name="HungerBar"
-                Progress="{Binding HungerLevel, Mode=OneWay}"
-                SemanticProperties.HeadingLevel="Level2"
-                HorizontalOptions="FillAndExpand"
-                HeightRequest="30"
-                WidthRequest="200"
-                ProgressColor="Red"
+                    x:Name="HungerBar"
+                    Grid.Row="1"
+                    Grid.Column="0"
                     BackgroundColor="Black"
-                Grid.Row="1" Grid.Column="0"/>
+                    HeightRequest="30"
+                    HorizontalOptions="FillAndExpand"
+                    Progress="{Binding HungerLevel, Mode=OneWay}"
+                    ProgressColor="Red"
+                    SemanticProperties.HeadingLevel="Level2"
+                    WidthRequest="200" />
                 <Button
                     x:Name="CounterBtn2"
-                    Text="Feed The Creature"
-                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    Grid.Row="1"
+                    Grid.Column="0"
                     BackgroundColor="Transparent"
-                    Clicked="TestButtonClicked" Grid.Row="1" Grid.Column="0" />
-                
+                    Clicked="TestButtonClicked"
+                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    Text="Feed The Creature" />
+
                 <Image
-                Source="food.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HeightRequest="20"
                     HorizontalOptions="Start"
-                HeightRequest="20"
-                WidthRequest="20"
-                Grid.Row="1" Grid.Column="1"/>
-                
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Source="food.png"
+                    WidthRequest="20" />
+
                 <Label
-                Text="{Binding ThirstText, Mode=OneWay}"
-                SemanticProperties.HeadingLevel="Level2"
-                FontSize="16"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="StartAndExpand"
-                BackgroundColor="Transparent"
-                Grid.Row="2" Grid.Column="0"/>
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    FontSize="16"
+                    HorizontalOptions="StartAndExpand"
+                    SemanticProperties.HeadingLevel="Level2"
+                    Text="{Binding ThirstText, Mode=OneWay}"
+                    VerticalOptions="CenterAndExpand" />
 
                 <ProgressBar
-                x:Name="ThirstBar"
-                Progress="{Binding ThirstLevel, Mode=OneWay}"
-                HorizontalOptions="StartAndExpand"
-                HeightRequest="20"
-                WidthRequest="150"
-                ProgressColor="Blue"
+                    x:Name="ThirstBar"
+                    Grid.Row="3"
+                    Grid.Column="0"
                     BackgroundColor="Black"
-                Grid.Row="3" Grid.Column="0"/>
-                
+                    HeightRequest="20"
+                    HorizontalOptions="StartAndExpand"
+                    Progress="{Binding ThirstLevel, Mode=OneWay}"
+                    ProgressColor="Blue"
+                    WidthRequest="150" />
+
                 <Button
                     x:Name="CounterBtn3"
-                    Text=""
-                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    Grid.Row="3"
+                    Grid.Column="0"
                     BackgroundColor="Transparent"
-                    Clicked="TestButtonClicked" Grid.Row="3" Grid.Column="0" />
+                    Clicked="TestButtonClicked"
+                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    Text="" />
 
                 <Image
-                Source="thirst.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    HeightRequest="20"
                     HorizontalOptions="Start"
-                HeightRequest="20"
-                WidthRequest="20"
-                Grid.Row="3" Grid.Column="1"/>
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Source="thirst.png"
+                    WidthRequest="20" />
 
             </Grid>
 
             <Image
-                Source="test.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Grid.Row="4"
+                Grid.Column="2"
                 HeightRequest="200"
-                HorizontalOptions="Center" 
-                Grid.Row="4" Grid.Column="2"/>
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="test.png" />
 
             <Label
-                Text="Creature^"
-                SemanticProperties.HeadingLevel="Level2"
                 FontSize="32"
-                TextColor="White"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2"
+                Text="Creature^"
+                TextColor="White" />
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <Button
-                x:Name="CounterBtn"
-                Text="Feed The Creature"
-                SemanticProperties.Hint="Maakt een creature in de cloud aan"
-                Clicked="TestButtonClicked" Grid.Row="1" Grid.Column="0" />
+                    x:Name="CounterBtn"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Clicked="TestButtonClicked"
+                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
+                    Text="Feed The Creature" />
                 <Button
-                x:Name="CreateCreature"
-                Text="MakeCreature"
-                SemanticProperties.Hint="Maakt een creature in de local db aan"
-                Clicked="Button_Clicked" Grid.Row="1" Grid.Column="1" />
+                    x:Name="CreateCreature"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    SemanticProperties.Hint="Maakt een creature in de local db aan"
+                    Text="MakeCreature" />
 
 
             </Grid>
-            <tomogachi:NewContent1 ViewName="MainPage"/>
+            <tomogachi:NewContent1 ViewName="MainPage" />
         </VerticalStackLayout>
     </ScrollView>
 

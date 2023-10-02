@@ -26,6 +26,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[D:/Gihub/Tamagotchi/Tomogachi/Entertainment.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.Entertainment.xaml
+build_metadata.AdditionalFiles.TargetPath = Entertainment.xaml
+build_metadata.AdditionalFiles.RelativePath = Entertainment.xaml
+
 [D:/Gihub/Tamagotchi/Tomogachi/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.MainPage.xaml
@@ -43,6 +49,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.NewTestPage.xaml
 build_metadata.AdditionalFiles.TargetPath = NewTestPage.xaml
 build_metadata.AdditionalFiles.RelativePath = NewTestPage.xaml
+
+[D:/Gihub/Tamagotchi/Tomogachi/ProgressBars.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Tomogachi.ProgressBars.xaml
+build_metadata.AdditionalFiles.TargetPath = ProgressBars.xaml
+build_metadata.AdditionalFiles.RelativePath = ProgressBars.xaml
 
 [D:/Gihub/Tamagotchi/Tomogachi/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

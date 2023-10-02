@@ -1,22 +1,25 @@
+using System.Diagnostics;
+
 namespace Tomogachi;
 
 public partial class NewTestPage : ContentPage
 {
-    public NewTestPage(MainPage mainPage)
+    MainPage mainPage;
+    public NewTestPage(MainPage _mainPage)
     {
         InitializeComponent();
         BindingContext = this;
-        HungerText.BindingContext = mainPage;
-        HungerBar.BindingContext = mainPage;
-        ThirstBar.BindingContext = mainPage;
-        ThirstText.BindingContext = mainPage;
+        mainPage = _mainPage;
+        HungerBar.BindingContext = _mainPage;
+        ThirstBar.BindingContext = _mainPage;
     }
 
     void OnbuttonClicked(object sender, EventArgs e)
     {
-        if (MainPage.MyCreature.Hunger - .1f! < 0)
+        Debug.WriteLine(mainPage.MyCreature.Hunger);
+        if ((mainPage.MyCreature.Hunger - .1f) > 0 && (mainPage.MyCreature.Hunger - .1f) <= .8f)
         {
-            MainPage.MyCreature.Hunger += 1f;
+            mainPage.MyCreature.Hunger += .1f;
         }
     }
 }
