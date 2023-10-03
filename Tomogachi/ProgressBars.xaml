@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:tomogachi="clr-namespace:Tomogachi">
 
-    <Grid>
-        <!--  Health Bar  -->
+    <!--  Health Bar  -->
+    <!--
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -22,7 +22,9 @@
             WidthRequest="200" />
 
 
-        <!--  Thirst Bar (you can adjust the UI as needed)  -->
+    -->
+    <!--  Thirst Bar (you can adjust the UI as needed)  -->
+    <!--
 
         <ProgressBar
             x:Name="ThirstBar"
@@ -32,6 +34,42 @@
             HorizontalOptions="StartAndExpand"
             Progress="{Binding Thirst}"
             ProgressColor="Aqua"
-            WidthRequest="200" />
+            WidthRequest="200" />-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Button
+            x:Name="CounterBtn"
+            Grid.Row="1"
+            Grid.Column="0"
+            Clicked="TestButtonClicked"
+            SemanticProperties.Hint="Maakt een creature in de cloud aan"
+            Text="Feed The Creature" />
+        <!--<Button
+        x:Name="CreateCreatureOnline"
+        Grid.Row="1"
+        Grid.Column="1"
+        Clicked="Button_Clicked"
+        SemanticProperties.Hint="Maakt een creature in de local db aan"
+        Text="MakeCreature" />-->
+        <Button
+            x:Name="EntertainCreature"
+            Grid.Row="1"
+            Grid.Column="2"
+            Clicked="OnEntertainmentButtonClicked"
+            SemanticProperties.Hint="gaat naar de pagina die de creature entertained."
+            Text="Entertain" />
+
+
     </Grid>
 </ContentView>
