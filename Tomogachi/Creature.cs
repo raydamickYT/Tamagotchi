@@ -10,6 +10,7 @@ namespace Tomogachi
     {
         public float Hunger { get; set; } = 1f;
         public float Thirst { get; set; } = 1f;
+        public float EnterTained { get; set; } = 1f;
         public string Name { get; set; } = "Vincent";
         public int Id { get; set; } = 1;
 

@@ -7,10 +7,10 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
+            Padding="20"
             BackgroundColor="Gainsboro"
             Spacing="5"
-            VerticalOptions="Start">
+            VerticalOptions="FillAndExpand">
 
             <Grid Padding="0">
                 <Grid.RowDefinitions>
@@ -26,20 +26,20 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Label
+                <!--<Label
                     Grid.Row="0"
                     Grid.Column="0"
                     BackgroundColor="Transparent"
                     FontSize="16"
                     HorizontalOptions="StartAndExpand"
                     Text="{Binding HungerText, Mode=OneWay}"
-                    VerticalOptions="CenterAndExpand" />
+                    VerticalOptions="CenterAndExpand" />-->
 
                 <ProgressBar
                     x:Name="HungerBar"
                     Grid.Row="1"
                     Grid.Column="0"
-                    BackgroundColor="Black"
+                    BackgroundColor="Transparent"
                     HeightRequest="30"
                     HorizontalOptions="FillAndExpand"
                     Progress="{Binding HungerLevel, Mode=OneWay}"
@@ -64,7 +64,7 @@
                     Source="food.png"
                     WidthRequest="20" />
 
-                <Label
+                <!--<Label
                     Grid.Row="2"
                     Grid.Column="0"
                     BackgroundColor="Transparent"
@@ -72,14 +72,13 @@
                     HorizontalOptions="StartAndExpand"
                     SemanticProperties.HeadingLevel="Level2"
                     Text="{Binding ThirstText, Mode=OneWay}"
-                    VerticalOptions="CenterAndExpand" />
+                    VerticalOptions="CenterAndExpand" />-->
 
                 <ProgressBar
                     x:Name="ThirstBar"
                     Grid.Row="3"
                     Grid.Column="0"
-                    BackgroundColor="Black"
-                    HeightRequest="20"
+                    HeightRequest="30"
                     HorizontalOptions="StartAndExpand"
                     Progress="{Binding ThirstLevel, Mode=OneWay}"
                     ProgressColor="Blue"
@@ -104,29 +103,33 @@
                     WidthRequest="20" />
 
             </Grid>
+            <Frame Padding="20">
 
-            <Image
-                Grid.Row="4"
-                Grid.Column="2"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="test.png" />
+                <Image
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    HeightRequest="200"
+                    HorizontalOptions="Center"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Source="food.png" />
+
+            </Frame>
 
             <Label
                 FontSize="32"
                 HorizontalOptions="Center"
                 SemanticProperties.HeadingLevel="Level2"
-                Text="Creature^"
+                Text="Creature2^"
                 TextColor="White" />
 
-            <Grid>
+            <!--<Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
@@ -139,15 +142,23 @@
                     SemanticProperties.Hint="Maakt een creature in de cloud aan"
                     Text="Feed The Creature" />
                 <Button
-                    x:Name="CreateCreature"
+                    x:Name="CreateCreatureOnline"
                     Grid.Row="1"
                     Grid.Column="1"
                     Clicked="Button_Clicked"
                     SemanticProperties.Hint="Maakt een creature in de local db aan"
                     Text="MakeCreature" />
+                <Button
+                    x:Name="EntertainCreature"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Clicked="OnEntertainmentButtonClicked"
+                    SemanticProperties.Hint="gaat naar de pagina die de creature entertained."
+                    Text="Entertain" />
 
 
-            </Grid>
+            </Grid>-->
+            <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
             <tomogachi:NewContent1 ViewName="MainPage" />
         </VerticalStackLayout>
     </ScrollView>

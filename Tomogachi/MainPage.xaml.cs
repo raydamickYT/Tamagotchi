@@ -29,6 +29,17 @@ namespace Tomogachi
             _ => throw new ArgumentException("Not Possible", MyCreature.Hunger.ToString())
         };
 
+        public string EntertainmentLevel => MyCreature.EnterTained switch
+        {
+            <= 0 => "Amused",
+            < .25f => "Slightly amused",
+            < .50f => "Indifferent",
+            < .75f => "Slightly Interested",
+            < 1 => "Nonchalant",
+            >= 1.0f => "Bored",
+            _ => throw new ArgumentException("Not Possible", MyCreature.EnterTained.ToString())
+        };
+
         public string ThirstText => MyCreature.Thirst switch
         {
             <= 0 => "Not Thirsty",
@@ -92,8 +103,44 @@ namespace Tomogachi
             updateTimer.Elapsed += OnUpdateTimerElapsed;
             updateTimer.Start();
 
+            ProgressBarHealth.ButtonClicked += EntertainmentButton;
+            ProgressBarHealth.ButtonClicked2 += FeedingPageButton;
+
         }
 
+        private void NavigateToPage<TPage>(Func<MainPage, TPage> pageFactory) where TPage : Page
+        {
+            var existingPage = Navigation.NavigationStack.OfType<TPage>().FirstOrDefault();
+            if (existingPage != null)
+            {
+                var index = Navigation.NavigationStack
+                    .Select((page, idx) => new { page, idx })
+                    .FirstOrDefault(x => x.page == existingPage)?.idx;
+
+                if (index.HasValue)
+                {
+                    // Pop pages until you reach the existing page
+                    for (int i = Navigation.NavigationStack.Count - 1; i > index.Value; i--)
+                    {
+                        Navigation.RemovePage(Navigation.NavigationStack[i]);
+                    }
+                }
+            }
+            else
+            {
+                Navigation.PushAsync(pageFactory(this));
+            }
+        }
+
+        private void FeedingPageButton()
+        {
+            NavigateToPage(mainPage => new NewTestPage(mainPage));
+        }
+
+        private void EntertainmentButton()
+        {
+            NavigateToPage(mainPage => new Entertainment(mainPage));
+        }
         private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
         {
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
@@ -101,36 +148,42 @@ namespace Tomogachi
             HungerLevel = MyCreature.Hunger;
             MyCreature.Thirst -= 1 / 600f;
             ThirstLevel = MyCreature.Thirst;
+            MyCreature.EnterTained -= 1 / 600f;
             Debug.WriteLine(ThirstText);
 
         }
 
-        private async void OnCounterClicked(object sender, EventArgs e)
+        private void OnEntertainmentButtonClicked(object sender, EventArgs e)
         {
-            count += 1;
-
-            if (count == 1)
-            {
-                CounterBtn.Text = $"Clicked {count} time";
-            }
-            else
-            {
-                CounterBtn.Text = $"Clicked {count} times";
-            }
-
-            //50 is in a unit relative to the device's display.
-            await CounterBtn.RelRotateTo(90.0, 1000, Easing.SpringIn);
-            await CounterBtn.TranslateTo(.0, 50.0, 1000);
-            await CounterBtn.TranslateTo(.0, -50.0, 1000);
-            await CounterBtn.ScaleTo(10, 1000, Easing.BounceIn);
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Debug.WriteLine("test");
+            Navigation.PushAsync(new Entertainment(this));
         }
+
+        //private async void OnCounterClicked(object sender, EventArgs e)
+        //{
+        //    count += 1;
+
+        //    if (count == 1)
+        //    {
+        //        CounterBtn.Text = $"Clicked {count} time";
+        //    }
+        //    else
+        //    {
+        //        CounterBtn.Text = $"Clicked {count} times";
+        //    }
+
+        //    //50 is in a unit relative to the device's display.
+        //    await CounterBtn.RelRotateTo(90.0, 1000, Easing.SpringIn);
+        //    await CounterBtn.TranslateTo(.0, 50.0, 1000);
+        //    await CounterBtn.TranslateTo(.0, -50.0, 1000);
+        //    await CounterBtn.ScaleTo(10, 1000, Easing.BounceIn);
+
+        //    SemanticScreenReader.Announce(CounterBtn.Text);
+        //}
 
         void TestButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NewTestPage(this));
-
         }
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)
