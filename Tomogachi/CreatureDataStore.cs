@@ -7,23 +7,21 @@ namespace Tomogachi
 {
     internal class CreatureDataStore : IDataStore<Creature>
     {
-        public string StorageKey = string.Empty;
-        public CreatureDataStore(string _storageKey)
+        public CreatureDataStore()
         {
-            StorageKey = _storageKey;
         }
 
-        public Task<bool> CreateItem(Creature Data)
+        public Task<bool> CreateItem(Creature Data, string StorageKey)
         {
-            if (Preferences.ContainsKey("MyCreature"))
+            if (Preferences.ContainsKey(StorageKey))
             {
                 return Task.FromResult(false);
             }
 
             string creatureString = JsonConvert.SerializeObject(Data);
-            Preferences.Set("MyCreature", creatureString);
+            Preferences.Set(StorageKey, creatureString);
 
-            return Task.FromResult(Preferences.ContainsKey("MyCreature"));
+            return Task.FromResult(Preferences.ContainsKey(StorageKey));
         }
 
         public bool DeleteItem(Creature Item)
@@ -33,14 +31,18 @@ namespace Tomogachi
 
         public Task<Creature> ReadItem(string id)
         {
-            string itemText = Preferences.Get("MyCreature", "");
+            string itemText = Preferences.Get(id, "");
 
             Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
             return Task.FromResult(creature);
         }
 
-        public bool UpdateItem(Creature Item)
+        public bool UpdateItem(Creature Item, bool IsSleeping)
         {
+            string itemText = Preferences.Get(Item.Name, "");
+
+            Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
+            creature.Name = Item.Name;
             return false;
         }
     }

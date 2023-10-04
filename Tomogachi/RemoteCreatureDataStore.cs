@@ -12,13 +12,15 @@ namespace Tomogachi
     {
         private HttpClient client = new HttpClient();
 
-        public async Task<bool> CreateItem(Creature Data)
+        public async Task<bool> CreateItem(Creature Data, string S)
         {
             string creatureString = JsonConvert.SerializeObject(Data);
+            Creature TestCreature = JsonConvert.DeserializeObject<Creature>(creatureString);
 
+            Preferences.Set("TeestCreatureHardCoded", creatureString);
+            creatureString = Preferences.Get("TeestCreatureHardCoded", "");
             //"encoding" is onderdeel van system.text(volledige cmd is system.text.encoding.utf8)
-            var response = await client.PostAsync($"https://tamagotchi.hku.nl/api/Creatures/", new StringContent(creatureString, Encoding.UTF8, "application/json"));
-            var response2 = await client.GetAsync("https://tamagotchi.hku.nl/api/Creatures");
+            var response = await client.PostAsync($"https://tamagotchi.hku.nl/api/Creatures", new StringContent(JsonConvert.SerializeObject(Data), Encoding.UTF8, "application/json"));
             if(!response.IsSuccessStatusCode)
             {
                 var errorMessage = await response.Content.ReadAsStringAsync();
@@ -61,7 +63,7 @@ namespace Tomogachi
             return null;
         }
 
-        public bool UpdateItem(Creature Item)
+        public bool UpdateItem(Creature Item, bool IsSleeping)
         {
             throw new NotImplementedException();
         }

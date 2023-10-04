@@ -8,9 +8,9 @@ namespace Tomogachi
 {
     internal interface IDataStore<T>
     {
-        Task<bool> CreateItem(T Data);
+        Task<bool> CreateItem(T Data, string StorageKey);
         bool DeleteItem(T Item);
-        bool UpdateItem(T Item);
+        bool UpdateItem(T Item, bool IsSleeping);
         public Task<T> ReadItem(string id);
 
     }

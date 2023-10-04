@@ -20,6 +20,10 @@ namespace Tomogachi
 
         public Creature MyCreature { get; set; } = new Creature();
 
+        IDataStore<Creature> TestDataStore;
+
+        Creature CreatureFromDatabase;
+
         public string LonelyLevel => MyCreature.Loneliness switch
         {
             <= 0 => "Lonely",
@@ -72,12 +76,14 @@ namespace Tomogachi
 
         public MainPage()
         {
+            //vergeet deze niet weg te halen
+            Preferences.Clear();
             BindingContext = this;
             InitializeComponent();
 
-            string creatureString = JsonConvert.SerializeObject(MyCreature);
+            //string creatureString = JsonConvert.SerializeObject(MyCreature);
 
-            Preferences.Set("MyCreature", creatureString);
+            //Preferences.Set("MyCreature", creatureString);
 
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
 
@@ -95,9 +101,11 @@ namespace Tomogachi
             ProgressBarHealth.FeedingButtonClicked += FeedingPageButton;
             ProgressBarHealth.MainPageButtonClicked += MainPageButton;
             ProgressBarHealth.BedRoomButtonClicked += BedRoomButton;
+
         }
-        private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
+        private async void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
         {
+            //CreatureFromDatabase = await TestDataStore.ReadItem("2");
 
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
             MyCreature.Hunger -= 1f / 600f;
@@ -114,6 +122,7 @@ namespace Tomogachi
             {
                 MyCreature.tired -= .1f;
             }
+
 
 
         }
@@ -213,20 +222,24 @@ namespace Tomogachi
             //    // kom hier later op terug
             //}
 
-            var result = await dataStore.CreateItem(MyCreature);
-            var testItem = await dataStore.ReadItem("2");
-            //Debug.WriteLine(testItem.Name);
+            var result = await dataStore.CreateItem(MyCreature, MyCreature.Name);
+            var testItem = await dataStore.ReadItem(MyCreature.Name);
+            Debug.WriteLine(testItem.Name);
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            string CreatureName = Preferences.Get("creature_name", null);
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+            // string CreatureName = dataStore.Get("creature_name", null);
 
-            if(string.IsNullOrEmpty(CreatureName))
+            if (MyCreature.Name == "Vincent")
             {
-                Navigation.PushAsync(new CreateName());
+                await Navigation.PushAsync(new CreateName(MyCreature, this));
             }
+            var result = await dataStore.CreateItem(MyCreature, MyCreature.Name);
+            //dataStore.UpdateItem(MyCreature, IsSleeping);
+            var ReadName = await dataStore.ReadItem(MyCreature.Name);
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

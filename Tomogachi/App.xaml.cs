@@ -10,7 +10,7 @@ namespace Tomogachi
 
         public App()
         {
-            DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteCreatureDataStore());
+            DependencyService.RegisterSingleton<IDataStore<Creature>>(new CreatureDataStore());
 
             InitializeComponent();
 
