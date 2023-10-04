@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -16,14 +17,21 @@ namespace Tomogachi
             string creatureString = JsonConvert.SerializeObject(Data);
 
             //"encoding" is onderdeel van system.text(volledige cmd is system.text.encoding.utf8)
-            var response = await client.PostAsync("https://tamagotchi.hku.nl/api/Creatures", new StringContent(creatureString, Encoding.UTF8, "application/json"));
-
+            var response = await client.PostAsync($"https://tamagotchi.hku.nl/api/Creatures/", new StringContent(creatureString, Encoding.UTF8, "application/json"));
+            var response2 = await client.GetAsync("https://tamagotchi.hku.nl/api/Creatures");
+            if(!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Error: {errorMessage}");
+                Debug.WriteLine(response.IsSuccessStatusCode);
+            }
             if (response.IsSuccessStatusCode)
             {
                 string responseString = await response.Content.ReadAsStringAsync();
                 var responseCreature = JsonConvert.DeserializeObject<Creature>(responseString);
 
                 Preferences.Set("CreatureID", responseCreature.Id);
+
 
                 return true;
 

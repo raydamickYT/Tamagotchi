@@ -41,5 +41,11 @@ namespace Tomogachi
                 //hier kan je iets doen met de elapsed time. bijv een property updaten  
             }
         }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+        }
+
     }
 }

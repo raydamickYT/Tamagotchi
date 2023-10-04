@@ -63,7 +63,7 @@ public partial class Entertainment : ContentPage
 
     public void EnterTainHim(object sender, EventArgs e)
 	{
-		mainPage.MyCreature.EnterTained += .1f;
+		mainPage.MyCreature.boredom += .1f;
 		Debug.WriteLine(mainPage.EntertainmentLevel);
 	}
 }

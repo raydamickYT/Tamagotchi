@@ -20,15 +20,15 @@ namespace Tomogachi
 
         public Creature MyCreature { get; set; } = new Creature();
 
-        public string LonelyLevel => MyCreature.Lonelyness switch
+        public string LonelyLevel => MyCreature.Loneliness switch
         {
             <= 0 => "Lonely",
             < .50f => "Comfortable",
             < 1 => "Overstimulated",
             >= 1.0f => "Idk what comes after overstimulated ",
-            _ => throw new ArgumentException("Not Possible", MyCreature.Lonelyness.ToString())
+            _ => throw new ArgumentException("Not Possible", MyCreature.Loneliness.ToString())
         };
-        public string EntertainmentLevel => MyCreature.EnterTained switch
+        public string EntertainmentLevel => MyCreature.boredom switch
         {
             <= 0 => "Amused",
             < .25f => "Slightly amused",
@@ -36,7 +36,7 @@ namespace Tomogachi
             < .75f => "Slightly Interested",
             < 1 => "Nonchalant",
             >= 1.0f => "Bored",
-            _ => throw new ArgumentException("Not Possible", MyCreature.EnterTained.ToString())
+            _ => throw new ArgumentException("Not Possible", MyCreature.boredom.ToString())
         };
 
         private float _hungerLevel;
@@ -98,25 +98,25 @@ namespace Tomogachi
         }
         private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
         {
+
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
             MyCreature.Hunger -= 1f / 600f;
             HungerLevel = MyCreature.Hunger;
             MyCreature.Thirst -= 1 / 600f;
             ThirstLevel = MyCreature.Thirst;
-            MyCreature.EnterTained -= 1 / 600f;
+            MyCreature.boredom -= 1 / 600f;
 
             if (IsSleeping)
             {
-                MyCreature.Sleep += .1f;
+                MyCreature.tired += .1f;
             }
             else
             {
-                MyCreature.Sleep -= .1f;
+                MyCreature.tired -= .1f;
             }
 
 
         }
-
         private void NavigateToPage<TPage>(Func<MainPage, TPage> pageFactory) where TPage : Page
         {
             var existingPage = Navigation.NavigationStack.OfType<TPage>().FirstOrDefault();
@@ -197,6 +197,7 @@ namespace Tomogachi
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
+
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
             //MyCreature = null; //dataStore.ReadItem();
             //if (MyCreature == null)
@@ -211,9 +212,21 @@ namespace Tomogachi
 
             //    // kom hier later op terug
             //}
+
             var result = await dataStore.CreateItem(MyCreature);
-            var testItem = await dataStore.ReadItem("1");
-            Debug.WriteLine(testItem.Name);
+            var testItem = await dataStore.ReadItem("2");
+            //Debug.WriteLine(testItem.Name);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            string CreatureName = Preferences.Get("creature_name", null);
+
+            if(string.IsNullOrEmpty(CreatureName))
+            {
+                Navigation.PushAsync(new CreateName());
+            }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

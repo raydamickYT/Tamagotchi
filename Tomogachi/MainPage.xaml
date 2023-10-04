@@ -165,6 +165,14 @@
 
 
             </Grid>-->
+
+            <Button
+                x:Name="Testbutton"
+                Grid.Row="1"
+                Grid.Column="2"
+                Clicked="Button_Clicked"
+                SemanticProperties.Hint="check cloud"
+                Text="cloud" />
             <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
             <tomogachi:NewContent1 ViewName="Mainpage" />
         </VerticalStackLayout>
