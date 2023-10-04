@@ -40,6 +40,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -49,12 +50,19 @@
         </Grid.ColumnDefinitions>
 
         <Button
-            x:Name="CounterBtn"
+            x:Name="FeedingButton"
             Grid.Row="1"
             Grid.Column="0"
-            Clicked="TestButtonClicked"
-            SemanticProperties.Hint="Maakt een creature in de cloud aan"
+            Clicked="OnFeedingButtonClicked"
+            SemanticProperties.Hint="ga naar de feeding page"
             Text="Feed The Creature" />
+        <Button
+            x:Name="MainPageButton"
+            Grid.Row="1"
+            Grid.Column="1"
+            Clicked="OnMainPageButtonClicked"
+            SemanticProperties.Hint="Ga terug nar de main page"
+            Text="MainPage" />
         <!--<Button
         x:Name="CreateCreatureOnline"
         Grid.Row="1"
@@ -70,6 +78,13 @@
             SemanticProperties.Hint="gaat naar de pagina die de creature entertained."
             Text="Entertain" />
 
+        <Button
+            x:Name="Bedroom"
+            Grid.Row="2"
+            Grid.Column="1"
+            Clicked="OnBedRoomButtonClicked"
+            SemanticProperties.Hint="gaat naar de bedroom."
+            Text="Bedroom" />
 
     </Grid>
 </ContentView>

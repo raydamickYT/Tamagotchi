@@ -13,8 +13,10 @@ public partial class NewTestPage : ContentPage
         HungerBar.BindingContext = _mainPage;
         ThirstBar.BindingContext = _mainPage;
 
-        ProgressBarHealth.ButtonClicked += EntertainmentButton;
-        ProgressBarHealth.ButtonClicked2 += FeedingPageButton;
+        ProgressBarHealth.EntertainmentButtonClicked += EntertainmentButton;
+        ProgressBarHealth.FeedingButtonClicked += FeedingPageButton;
+        ProgressBarHealth.MainPageButtonClicked += MainPageButton;
+        ProgressBarHealth.BedRoomButtonClicked += BedRoomButton;
     }
     private void NavigateToPage<TPage>(Func<MainPage, TPage> pageFactory) where TPage : Page
     {
@@ -48,6 +50,16 @@ public partial class NewTestPage : ContentPage
     private void EntertainmentButton()
     {
         NavigateToPage(page => new Entertainment(page));
+    }
+    private void MainPageButton()
+    {
+        //NavigateToPage(mainpage => new MainPage());
+        Navigation.PopToRootAsync();
+
+    }
+    private void BedRoomButton()
+    {
+        NavigateToPage(mainpage => new Sleep(mainpage));
     }
     void OnbuttonClicked(object sender, EventArgs e)
     {

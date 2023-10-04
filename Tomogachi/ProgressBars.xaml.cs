@@ -11,8 +11,10 @@ public partial class ProgressBarHealth : ContentView, INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
     public delegate void ButtonClickedDelegate();
 
-    public event ButtonClickedDelegate ButtonClicked;
-    public event ButtonClickedDelegate ButtonClicked2;
+    public event ButtonClickedDelegate EntertainmentButtonClicked;
+    public event ButtonClickedDelegate FeedingButtonClicked;
+    public event ButtonClickedDelegate MainPageButtonClicked;
+    public event ButtonClickedDelegate BedRoomButtonClicked;
     //public static readonly BindableProperty HealthProperty =
     //   BindableProperty.Create(nameof(Health), typeof(double), typeof(ProgressBarHealth));
 
@@ -29,7 +31,6 @@ public partial class ProgressBarHealth : ContentView, INotifyPropertyChanged
         this.BindingContext = this;
     }
 
-
     //public double Health
     //{
     //    get => (double)GetValue(HealthProperty);
@@ -40,13 +41,23 @@ public partial class ProgressBarHealth : ContentView, INotifyPropertyChanged
     private void OnEntertainmentButtonClicked(object sender, EventArgs e)
     {
         // Navigation.PushAsync(new Entertainment(_mainPage));
-        ButtonClicked?.Invoke();
+        EntertainmentButtonClicked?.Invoke();
     }
-    void TestButtonClicked(object sender, EventArgs e)
-    {
-       // Navigation.PushAsync(new NewTestPage(_mainPage));
-       ButtonClicked2?.Invoke();
 
+    void OnFeedingButtonClicked(object sender, EventArgs e)
+    {
+        // Navigation.PushAsync(new NewTestPage(_mainPage));
+        FeedingButtonClicked?.Invoke();
+    }
+
+    void OnMainPageButtonClicked(object sender, EventArgs e)
+    {
+        MainPageButtonClicked?.Invoke();
+    }
+
+    void OnBedRoomButtonClicked(object sender, EventArgs e)
+    {
+        BedRoomButtonClicked?.Invoke();
     }
     //public double Thirst
     //{

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tomogachi.Sleep"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tomogachi="clr-namespace:Tomogachi"
+    Title="Sleep">
+
+    <StackLayout
+        Padding="30"
+        BackgroundColor="{Binding BackgroundColorSetter, Mode=OneWay}"
+        Spacing="5">
+
+
+        <Button
+            x:Name="Sleepb"
+            Clicked="Sleep_Clicked"
+            SemanticProperties.Hint="verander de background color"
+            Text="sleep" />
+
+        <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
+
+    </StackLayout>
+</ContentPage>

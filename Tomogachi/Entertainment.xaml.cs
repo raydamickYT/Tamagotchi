@@ -12,8 +12,11 @@ public partial class Entertainment : ContentPage
 		BindingContext = this;
         Entertainmentlabel.BindingContext = mainPage;
 
-        ProgressBarHealth.ButtonClicked += EntertainmentButton;
-        ProgressBarHealth.ButtonClicked2 += FeedingPageButton;
+        ProgressBarHealth.EntertainmentButtonClicked += EntertainmentButton;
+        ProgressBarHealth.MainPageButtonClicked += MainPageButton;
+        ProgressBarHealth.FeedingButtonClicked += FeedingPageButton;
+        ProgressBarHealth.BedRoomButtonClicked += BedRoomButton;
+
     }
     private void NavigateToPage<TPage>(Func<MainPage, TPage> pageFactory) where TPage : Page
     {
@@ -48,7 +51,15 @@ public partial class Entertainment : ContentPage
     {
         NavigateToPage(page => new Entertainment(page));
     }
-
+    private void MainPageButton()
+    {
+        //NavigateToPage(mainpage => new MainPage());
+        Navigation.PopToRootAsync();
+    }
+    private void BedRoomButton()
+    {
+        NavigateToPage(mainpage => new Sleep(mainpage));
+    }
 
     public void EnterTainHim(object sender, EventArgs e)
 	{

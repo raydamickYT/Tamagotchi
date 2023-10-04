@@ -46,6 +46,7 @@
                     ProgressColor="Red"
                     SemanticProperties.HeadingLevel="Level2"
                     WidthRequest="200" />
+
                 <Button
                     x:Name="CounterBtn2"
                     Grid.Row="1"
@@ -101,6 +102,12 @@
                     SemanticProperties.Description="Cute dot net bot waving hi to you!"
                     Source="thirst.png"
                     WidthRequest="20" />
+                <Label
+                    x:Name="LoneyBar"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="{Binding LonelyLevel, Mode=OneWay}" />
+
 
             </Grid>
             <Frame Padding="20">
@@ -159,7 +166,7 @@
 
             </Grid>-->
             <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
-            <tomogachi:NewContent1 ViewName="MainPage" />
+            <tomogachi:NewContent1 ViewName="Mainpage" />
         </VerticalStackLayout>
     </ScrollView>
 

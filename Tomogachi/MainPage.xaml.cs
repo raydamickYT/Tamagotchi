@@ -11,6 +11,7 @@ namespace Tomogachi
         public event PropertyChangedEventHandler PropertyChanged;
         //timer
         private System.Timers.Timer updateTimer;
+        public bool IsSleeping = false;
 
         App app;
 
@@ -18,17 +19,15 @@ namespace Tomogachi
         public string HeaderTitle { get; set; } = "Why hello there";
 
         public Creature MyCreature { get; set; } = new Creature();
-        public string HungerText => MyCreature.Hunger switch
-        {
-            <= 0 => "Not Hungry",
-            < .25f => "A little Hungry",
-            < .50f => "Moderately Hungry",
-            < .75f => "Hungry",
-            < 1 => "Hangry",
-            >= 1.0f => "Starving",
-            _ => throw new ArgumentException("Not Possible", MyCreature.Hunger.ToString())
-        };
 
+        public string LonelyLevel => MyCreature.Lonelyness switch
+        {
+            <= 0 => "Lonely",
+            < .50f => "Comfortable",
+            < 1 => "Overstimulated",
+            >= 1.0f => "Idk what comes after overstimulated ",
+            _ => throw new ArgumentException("Not Possible", MyCreature.Lonelyness.ToString())
+        };
         public string EntertainmentLevel => MyCreature.EnterTained switch
         {
             <= 0 => "Amused",
@@ -38,17 +37,6 @@ namespace Tomogachi
             < 1 => "Nonchalant",
             >= 1.0f => "Bored",
             _ => throw new ArgumentException("Not Possible", MyCreature.EnterTained.ToString())
-        };
-
-        public string ThirstText => MyCreature.Thirst switch
-        {
-            <= 0 => "Not Thirsty",
-            < .25f => "A little Thirsty",
-            < .50f => "Moderately thristy",
-            < .75f => "THIRSTY",
-            < 1 => "THARSTY",
-            >= 1.0f => "Dehydrated",
-            _ => throw new ArgumentException("Not Possible", MyCreature.Thirst.ToString())
         };
 
         private float _hungerLevel;
@@ -103,8 +91,29 @@ namespace Tomogachi
             updateTimer.Elapsed += OnUpdateTimerElapsed;
             updateTimer.Start();
 
-            ProgressBarHealth.ButtonClicked += EntertainmentButton;
-            ProgressBarHealth.ButtonClicked2 += FeedingPageButton;
+            ProgressBarHealth.EntertainmentButtonClicked += EntertainmentButton;
+            ProgressBarHealth.FeedingButtonClicked += FeedingPageButton;
+            ProgressBarHealth.MainPageButtonClicked += MainPageButton;
+            ProgressBarHealth.BedRoomButtonClicked += BedRoomButton;
+        }
+        private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
+            MyCreature.Hunger -= 1f / 600f;
+            HungerLevel = MyCreature.Hunger;
+            MyCreature.Thirst -= 1 / 600f;
+            ThirstLevel = MyCreature.Thirst;
+            MyCreature.EnterTained -= 1 / 600f;
+
+            if (IsSleeping)
+            {
+                MyCreature.Sleep += .1f;
+            }
+            else
+            {
+                MyCreature.Sleep -= .1f;
+            }
+
 
         }
 
@@ -141,17 +150,17 @@ namespace Tomogachi
         {
             NavigateToPage(mainPage => new Entertainment(mainPage));
         }
-        private void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
-        {
-            //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
-            MyCreature.Hunger -= 1f / 600f;
-            HungerLevel = MyCreature.Hunger;
-            MyCreature.Thirst -= 1 / 600f;
-            ThirstLevel = MyCreature.Thirst;
-            MyCreature.EnterTained -= 1 / 600f;
-            Debug.WriteLine(ThirstText);
 
+        private void MainPageButton()
+        {
+            Navigation.PopToRootAsync();
         }
+
+        private void BedRoomButton()
+        {
+            NavigateToPage(mainpage => new Sleep(mainpage));
+        }
+
 
         private void OnEntertainmentButtonClicked(object sender, EventArgs e)
         {
