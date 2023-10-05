@@ -77,7 +77,7 @@ namespace Tomogachi
         public MainPage()
         {
             //vergeet deze niet weg te halen
-            Preferences.Clear();
+            //Preferences.Clear();
             BindingContext = this;
             InitializeComponent();
 
@@ -108,12 +108,11 @@ namespace Tomogachi
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
             string CreatureNamePulled = Preferences.Get(CreatureName, null);
 
-            if(CreatureNamePulled != null)
+            if (CreatureNamePulled != null)
             {
                 dataStore.UpdateItem(MyCreature, IsSleeping);
-                var ReadName = await dataStore.ReadItem(CreatureName);
                 Debug.WriteLine(CreatureName);
-                //start updating the creature (eerst hier dan in de update functie
+                OnPropertyChanged(nameof(CreatureName));
 
             }
             //CreatureFromDatabase = await TestDataStore.ReadItem("2");
@@ -215,37 +214,35 @@ namespace Tomogachi
             Navigation.PushAsync(new NewTestPage(this));
         }
 
-        async void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-
-            var dataStore = DependencyService.Get<IDataStore<Creature>>();
-            //MyCreature = null; //dataStore.ReadItem();
-            //if (MyCreature == null)
-            //{
-            //    MyCreature = new Creature()
-            //    {
-            //        Name = "Mannetje",
-            //        Hunger = 1.0f,
-            //        Thirst = 0.1f,
-            //    };
-            //    //MyCreature = testItem.Result;
-
-            //    // kom hier later op terug
-            //}
-
-            var result = await dataStore.CreateItem(MyCreature, MyCreature.Name);
-            var testItem = await dataStore.ReadItem(MyCreature.Name);
-            Debug.WriteLine(testItem.Name);
-        }
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            bool ContainsKey = Preferences.ContainsKey(CreatureName);
+            LoadCreature();
+        }
+        public async void LoadCreature()
+        {
+            //eerst kijken of we niet eerder een creature hebben aangemaakt. 
+            //Ik heb dit gehard code omdat ik niet van plan ben mensen meerdere creatures te laten maken aan het begin
+            // en omdat het checken een stuk makkelijker wordt.
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+            Debug.WriteLine($"{MyCreature.Name}");
 
-            if (!ContainsKey) 
+            string existingCreatureName = Preferences.Get("CreatureName", null);
+            if (!string.IsNullOrEmpty(existingCreatureName))
             {
-                await Navigation.PushAsync(new CreateName(MyCreature, this));
+                //als de creature wel bestaat, dan halen we die uit de database
+                var serializedCreature = await dataStore.ReadItem(existingCreatureName);
+
+                if (serializedCreature != null)
+                {
+                    //en geven we hem aan de creature
+                    MyCreature = serializedCreature;
+                }
+            }
+            else
+            {
+                //als de naam nog niet bestaat dan gaan we een nieuwe creaturemaken met de juiste naam
+                Navigation.PushAsync(new CreateName(MyCreature, this));
             }
         }
 

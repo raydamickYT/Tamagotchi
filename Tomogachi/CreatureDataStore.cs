@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -39,6 +40,11 @@ namespace Tomogachi
         {
             string itemText = Preferences.Get(id, "");
 
+            if (string.IsNullOrEmpty(itemText))
+            {
+                return Task.FromResult<Creature>(null); // Return null if the itemText is empty or null
+            }
+
             Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
             return Task.FromResult(creature);
         }
@@ -46,19 +52,26 @@ namespace Tomogachi
         public bool UpdateItem(Creature Item, bool IsSleeping)
         {
             string itemText = Preferences.Get(Item.Name, "");
+            Debug.WriteLine(Item.Name);
 
-            if (itemText != null)
+            if (string.IsNullOrEmpty(itemText))
             {
-                Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
-                creature.Hunger = Item.Hunger;
-                creature.Thirst = Item.Thirst;
-                creature.boredom = Item.boredom;
-                creature.tired = Item.tired;
-                string UpdatedCreatureString = JsonConvert.SerializeObject(creature);
-                Preferences.Set(Item.Name, UpdatedCreatureString);
-                return true;
+                return false; // Exit early if the itemText is empty or null
             }
-            return false;
+
+            Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
+            if (creature == null)
+            {
+                return false; // Exit if deserialization returns null
+            }
+
+            creature.Hunger = Item.Hunger;
+            creature.Thirst = Item.Thirst;
+            creature.boredom = Item.boredom;
+            creature.tired = Item.tired;
+            string UpdatedCreatureString = JsonConvert.SerializeObject(creature);
+            Preferences.Set(Item.Name, UpdatedCreatureString);
+            return true;
         }
     }
 }

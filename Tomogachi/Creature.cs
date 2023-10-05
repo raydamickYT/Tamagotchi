@@ -9,7 +9,7 @@ namespace Tomogachi
     public class Creature : INotifyPropertyChanged
     {
         public int Id { get; set; } = 1;
-        public string Name { get; set; } = "Vincent";
+        public string Name { get; set; } = string.Empty;
         public float Hunger { get; set; } = 1f;
         public float Thirst { get; set; } = 1f;
         public float boredom { get; set; } = 1f;

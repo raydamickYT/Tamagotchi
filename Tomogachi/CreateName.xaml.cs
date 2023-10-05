@@ -1,13 +1,13 @@
+using Newtonsoft.Json;
+
 namespace Tomogachi;
 
 public partial class CreateName : ContentPage
 {
-    Creature Creature;
     MainPage mainPage;
-    public CreateName(Creature TheCreature, MainPage _mainpage)
+    public CreateName(MainPage _mainpage)
     {
         mainPage = _mainpage;
-        Creature = TheCreature;
         InitializeComponent();
     }
 
@@ -15,16 +15,29 @@ public partial class CreateName : ContentPage
     {
         base.OnAppearing();
         var dataStore = DependencyService.Get<IDataStore<Creature>>();
-        string creaturename = Preferences.Get(Creature.Name, null);
 
-        string result = await DisplayPromptAsync("name your Creature", "please input name here:");
-        if (!string.IsNullOrEmpty(result))
+        //kijk ook hier even of we niet wat gemist hebben, zeker weten dat de creature niet al bestaat
+        string existingCreatureName = Preferences.Get("CreatureName", null);
+        if (string.IsNullOrEmpty(existingCreatureName))
         {
-            Preferences.Set(Creature.Name, result);
-            mainPage.MyCreature.Name = result;
-            var makeCreature = await dataStore.CreateItem(mainPage.MyCreature, mainPage.MyCreature.Name);
+            //als de creature echt niet bestaat, dan laten we de speler de creature een naam geven
+            string result = await DisplayPromptAsync("name your Creature", "please input name here:");
+            if (!string.IsNullOrEmpty(result))
+            {
+                mainPage.MyCreature.Name = result;
+                // en maken we hem aan
+                var makeCreature = await dataStore.CreateItem(mainPage.MyCreature, mainPage.MyCreature.Name);
+                Preferences.Set("CreatureName", result);
 
-            //return to main page
+                //return to main page
+                await Navigation.PopToRootAsync();
+            }
+
+        }
+        else
+        {
+            mainPage.MyCreature.Name = existingCreatureName;
+
             await Navigation.PopToRootAsync();
         }
     }
