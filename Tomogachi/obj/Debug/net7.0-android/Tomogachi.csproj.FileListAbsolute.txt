@@ -2012,3 +2012,6 @@ D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.
 D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
 D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\resizetizer\r\drawable\creature.png
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\resizetizer\r\drawable\day.png
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\resizetizer\r\drawable\night.png
+D:\Gihub\Tamagotchi\Tomogachi\obj\Debug\net7.0-android\resizetizer\r\drawable\bed.png

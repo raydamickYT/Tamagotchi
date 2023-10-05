@@ -59,23 +59,4 @@ public partial class ProgressBarHealth : ContentView, INotifyPropertyChanged
     {
         BedRoomButtonClicked?.Invoke();
     }
-    //public double Thirst
-    //{
-    //    get => (double)GetValue(ThirstProperty);
-    //    set
-    //    {
-    //        if ((Double)GetValue(ThirstProperty) != value)
-    //        {
-    //            SetValue(ThirstProperty, value);
-    //            Debug.WriteLine("werkt");
-    //            OnPropertyChanged();  // This notifies the UI of the change.
-    //        }
-
-    //    }
-    //}
-
-    //protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    //{
-    //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    //}
 }

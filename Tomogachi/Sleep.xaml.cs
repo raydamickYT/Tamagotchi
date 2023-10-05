@@ -9,9 +9,32 @@ namespace Tomogachi
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public ImageSource DayNightImage { get; set; }
+        public string SleepingStatusTekst => SleepButtonClickedBool switch
+        {
+            true => "Sleeping",
+            false => "awake",
+        };
+
         MainPage mainPage;
         private Color _backgroundColorSetter = Color.FromArgb("#dcdcdc");
-        private bool SleepButtonClickedBool = false;
+
+        private bool _sleepButtonClickedBool = false;
+
+        public bool SleepButtonClickedBool
+        {
+            get => _sleepButtonClickedBool;
+            set
+            {
+                if (_sleepButtonClickedBool != value)
+                {
+                    _sleepButtonClickedBool = value;
+                    OnPropertyChanged(nameof(SleepButtonClickedBool));
+                    OnPropertyChanged(nameof(SleepingStatusTekst));
+                }
+            }
+        }
+
         public Color BackgroundColorSetter
         {
             get => _backgroundColorSetter;
@@ -35,6 +58,17 @@ namespace Tomogachi
             ProgressBarHealth.MainPageButtonClicked += MainPageButton;
             ProgressBarHealth.BedRoomButtonClicked += BedRoomButton;
 
+            if (mainPage.MyCreature.Sleeping)
+            {
+                //still sleeping and needs to be woken up
+                BackgroundColorSetter = Color.FromArgb("#000000");
+                SleepButtonClickedBool = true;
+                mainPage.IsSleeping = true;
+            }
+
+            DayNightImage = ImageSource.FromFile("day.png");
+            OnPropertyChanged(nameof(DayNightImage));
+
         }
 
         private void Sleep_Clicked(object sender, EventArgs e)
@@ -45,6 +79,10 @@ namespace Tomogachi
                 BackgroundColorSetter = Color.FromArgb("#dcdcdc");
                 SleepButtonClickedBool = false;
                 mainPage.IsSleeping = false;
+
+
+                DayNightImage = ImageSource.FromFile("day.png");
+                OnPropertyChanged(nameof(DayNightImage));
             }
             else
             {
@@ -52,6 +90,10 @@ namespace Tomogachi
                 BackgroundColorSetter = Color.FromArgb("#000000");
                 SleepButtonClickedBool = true;
                 mainPage.IsSleeping = true;
+
+
+                DayNightImage = ImageSource.FromFile("night.png");
+                OnPropertyChanged(nameof(DayNightImage));
             }
         }
         protected override void OnDisappearing()

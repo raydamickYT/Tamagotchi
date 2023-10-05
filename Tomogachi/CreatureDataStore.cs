@@ -66,8 +66,9 @@ namespace Tomogachi
 
             creature.Hunger = Item.Hunger;
             creature.Thirst = Item.Thirst;
-            creature.boredom = Item.boredom;
-            creature.tired = Item.tired;
+            creature.Boredom = Item.Boredom;
+            creature.Tired = Item.Tired;
+            creature.Sleeping = Item.Sleeping;
             string UpdatedCreatureString = JsonConvert.SerializeObject(creature);
             Preferences.Set(Item.Name, UpdatedCreatureString);
             return true;

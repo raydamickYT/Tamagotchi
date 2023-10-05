@@ -18,7 +18,7 @@
                     <RowDefinition Height="10" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -107,10 +107,10 @@
                     Grid.Row="4"
                     Grid.Column="0"
                     Text="{Binding LonelyLevel, Mode=OneWay}" />
-
-
             </Grid>
-            <Frame Padding="20">
+            <Label x:Name="Tired" Text="{Binding Tiredness, Mode=OneWay}" />
+
+            <Frame Margin="0,30,0,0" Padding="20">
 
                 <Image
                     Grid.Row="4"

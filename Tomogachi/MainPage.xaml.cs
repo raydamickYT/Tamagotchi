@@ -12,6 +12,7 @@ namespace Tomogachi
         //timer
         private System.Timers.Timer updateTimer;
         public bool IsSleeping = false;
+        public bool Initialized = false;
 
         int count = 0;
         int DataBaseUpdateBuffer = 10;
@@ -28,7 +29,7 @@ namespace Tomogachi
             >= 1.0f => "Idk what comes after overstimulated ",
             _ => throw new ArgumentException("Not Possible", MyCreature.Loneliness.ToString())
         };
-        public string EntertainmentLevel => MyCreature.boredom switch
+        public string EntertainmentLevel => MyCreature.Boredom switch
         {
             <= 0 => "Amused",
             < .25f => "Slightly amused",
@@ -36,7 +37,15 @@ namespace Tomogachi
             < .75f => "Slightly Interested",
             < 1 => "Nonchalant",
             >= 1.0f => "Bored",
-            _ => throw new ArgumentException("Not Possible", MyCreature.boredom.ToString())
+            _ => throw new ArgumentException("Not Possible", MyCreature.Boredom.ToString())
+        };
+
+        public string Tiredness => MyCreature.Tired switch
+        {
+            <= 0 => "Tired",
+            < .50f => "Active",
+            < 1 => "Full of energy",
+            _ => throw new ArgumentException("Not Possible", MyCreature.Tired.ToString())
         };
 
         private float _hungerLevel;
@@ -104,20 +113,33 @@ namespace Tomogachi
                 DataBaseUpdateBuffer = 10;
             }
 
-            //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
+            //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600e toe te voegen iedere seconde kom ik daar op uit
             MyCreature.Hunger -= 1f / 600f;
             HungerLevel = MyCreature.Hunger;
+            MyCreature.Hunger = Math.Max(0, MyCreature.Hunger);
+
             MyCreature.Thirst -= 1 / 600f;
             ThirstLevel = MyCreature.Thirst;
-            MyCreature.boredom -= 1 / 600f;
+            MyCreature.Thirst = Math.Max(0, MyCreature.Thirst);
+
+            MyCreature.Boredom -= 1 / 600f;
+            MyCreature.Boredom = Math.Max(0, MyCreature.Boredom);
 
             if (IsSleeping)
             {
-                MyCreature.tired += .1f;
+                //sleeping
+                MyCreature.Tired += .1f;
+                MyCreature.Sleeping = IsSleeping;
+                MyCreature.Tired = Math.Min(MyCreature.Tired, 1);
+                dataStore.UpdateItem(MyCreature);
             }
             else
             {
-                MyCreature.tired -= .1f;
+                //awake
+                MyCreature.Tired -= .1f;
+                MyCreature.Sleeping = IsSleeping;
+                MyCreature.Tired = Math.Max(0, MyCreature.Tired);
+                dataStore.UpdateItem(MyCreature);
             }
 
             DataBaseUpdateBuffer--;
@@ -206,7 +228,6 @@ namespace Tomogachi
             if (MyCreature.Name != null)
             {
                 LoadCreature();
-
             }
         }
         public async void LoadCreature()
@@ -226,6 +247,12 @@ namespace Tomogachi
                 {
                     //en geven we hem aan de creature
                     MyCreature = serializedCreature;
+                    if (MyCreature.Sleeping && !Initialized)
+                    {
+                        Navigation.PushAsync(new Sleep(this));
+                        Initialized = true;
+                    }
+                    Initialized = true;
                 }
             }
             else

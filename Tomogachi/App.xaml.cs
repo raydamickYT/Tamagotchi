@@ -78,10 +78,12 @@ namespace Tomogachi
                 // Define decay rates per hour.
                 const float hungerDecayPerHour = 0.1f;
                 const float thirstDecayPerHour = 0.15f;
+                const float IsSleepingAdded = 1f;
 
                 // kijk hoeveel er van af moet. als er een nog op seconde staat dan kan je goed zien of het werkt
                 float hungerDecay = (float)elapsedTime.TotalSeconds * hungerDecayPerHour;
                 float thirstDecay = (float)elapsedTime.TotalHours * thirstDecayPerHour;
+                float SleepOffline = (float)elapsedTime.TotalHours * IsSleepingAdded;
 
                 Debug.WriteLine("hungerdecay" +  hungerDecay);
 
@@ -89,9 +91,15 @@ namespace Tomogachi
                 myCreature.Hunger -= hungerDecay;
                 myCreature.Thirst -= thirstDecay;
 
+                if (myCreature.Sleeping)
+                {
+                    myCreature.Tired += SleepOffline;
+                }
+
                 // zorg dat ze niet onder de 0 komen
                 myCreature.Hunger = Math.Max(0, myCreature.Hunger);
                 myCreature.Thirst = Math.Max(0, myCreature.Thirst);
+                myCreature.Tired = Math.Max(0, myCreature.Tired);
 
                 // Update creature in de database
                 dataStore.UpdateItem(myCreature);

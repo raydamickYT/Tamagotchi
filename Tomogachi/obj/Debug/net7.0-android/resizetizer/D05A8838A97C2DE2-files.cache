@@ -1,5 +1,8 @@
-﻿obj\Debug\net7.0-android\resizetizer\r\drawable\creature.png
+﻿obj\Debug\net7.0-android\resizetizer\r\drawable\bed.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\creature.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\day.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\food.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\night.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\thirst.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\splash.png

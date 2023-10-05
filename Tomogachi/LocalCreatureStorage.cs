@@ -58,6 +58,6 @@ public class LocalCreatureStorage : IDataStore<Creature>
         //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
         Item.Hunger -= 1f / 600f;
         Item.Thirst -= 1 / 600f;
-        Item.boredom -= 1 / 600f;
+        Item.Boredom -= 1 / 600f;
     }
 }

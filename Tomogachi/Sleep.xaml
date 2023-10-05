@@ -10,13 +10,31 @@
         Padding="30"
         BackgroundColor="{Binding BackgroundColorSetter, Mode=OneWay}"
         Spacing="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="210" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="{Binding SleepingStatusTekst, Mode=OneWay}" />
+
+            <Image
+                Grid.Row="0"
+                Grid.Column="3"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                SemanticProperties.Description=""
+                Source="{Binding DayNightImage, Mode=OneWay}" />
+        </Grid>
 
 
-        <Button
-            x:Name="Sleepb"
-            Clicked="Sleep_Clicked"
-            SemanticProperties.Hint="verander de background color"
-            Text="sleep" />
         <Frame Padding="20">
 
             <Image
@@ -27,7 +45,17 @@
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 Source="creature.png" />
 
+
         </Frame>
+        <ImageButton
+            x:Name="Sleepb"
+            Margin="0,100,0,-50"
+            Clicked="Sleep_Clicked"
+            HeightRequest="100"
+            SemanticProperties.Hint="verander de background color"
+            Source="bed.png"
+            WidthRequest="100" />
+
         <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
 
     </StackLayout>
