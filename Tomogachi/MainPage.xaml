@@ -85,23 +85,33 @@
                     SemanticProperties.Description="Cute dot net bot waving hi to you!"
                     Source="thirst.png"
                     WidthRequest="20" />
+
+            </Grid>
+            <Grid ColumnSpacing="70" HorizontalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
                 <Label
                     x:Name="LoneyBar"
-                    Grid.Row="4"
+                    Grid.Row="0"
                     Grid.Column="0"
                     Text="{Binding LonelyLevel, Mode=OneWay}" />
                 <!--  ik weet oprecht niet waarom dit niet showd, de bindings werken gewoon.  -->
                 <Label
                     x:Name="Tired"
-                    Grid.Row="4"
+                    Grid.Row="0"
                     Grid.Column="1"
-                    Text="{Binding Tiredness, Mode=OneWay}" />
+                    Text="{Binding Tiredness}" />
                 <Label
                     x:Name="Entertained"
-                    Grid.Row="5"
+                    Grid.Row="0"
                     Grid.Column="2"
-                    Text="{Binding EntertainmentLevel, Mode=OneWay}" />
-
+                    Text="{Binding EntertainmentLevel}" />
             </Grid>
             <Label
                 Margin="0,20,0,0"
