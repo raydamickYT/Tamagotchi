@@ -52,21 +52,12 @@ public class LocalCreatureStorage : IDataStore<Creature>
         return null;
     }
 
-    public bool UpdateItem(Creature Item, bool IsSleeping)
+    public bool UpdateItem(Creature Item)
     {
         throw new NotImplementedException();
         //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
         Item.Hunger -= 1f / 600f;
         Item.Thirst -= 1 / 600f;
         Item.boredom -= 1 / 600f;
-
-        if (IsSleeping)
-        {
-            Item.tired += .1f;
-        }
-        else
-        {
-            Item.tired -= .1f;
-        }
     }
 }

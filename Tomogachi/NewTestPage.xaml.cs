@@ -64,10 +64,14 @@ public partial class NewTestPage : ContentPage
     void OnbuttonClicked(object sender, EventArgs e)
     {
         Debug.WriteLine(mainPage.MyCreature.Hunger);
-        if ((mainPage.MyCreature.Hunger - .1f) > 0 && (mainPage.MyCreature.Hunger + .1f) <= 1f)
-        {
-            Debug.WriteLine("works");
-            mainPage.MyCreature.Hunger += .1f;
-        }
+        mainPage.MyCreature.Hunger += .1f;
+        mainPage.MyCreature.Hunger = Math.Min(mainPage.MyCreature.Hunger, 1f);
+    }
+
+    void OnDrinkingbuttonClicked(object sender, EventArgs e)
+    {
+        Debug.WriteLine(mainPage.MyCreature.Thirst);
+        mainPage.MyCreature.Thirst += .1f;
+        mainPage.MyCreature.Thirst = Math.Min(mainPage.MyCreature.Thirst, 1f);
     }
 }

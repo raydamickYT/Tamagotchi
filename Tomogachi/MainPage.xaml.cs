@@ -13,16 +13,12 @@ namespace Tomogachi
         private System.Timers.Timer updateTimer;
         public bool IsSleeping = false;
 
-        App app;
-
         int count = 0;
+        int DataBaseUpdateBuffer = 10;
         public string HeaderTitle { get; set; } = "Why hello there";
 
         public Creature MyCreature { get; set; } = new Creature();
-
-        IDataStore<Creature> TestDataStore;
-
-        Creature CreatureFromDatabase;
+        public string CreatureName => MyCreature.Name;
 
         public string LonelyLevel => MyCreature.Loneliness switch
         {
@@ -72,7 +68,6 @@ namespace Tomogachi
             }
         }
 
-        public string CreatureName => MyCreature.Name;
 
         public MainPage()
         {
@@ -80,12 +75,6 @@ namespace Tomogachi
             //Preferences.Clear();
             BindingContext = this;
             InitializeComponent();
-
-            //string creatureString = JsonConvert.SerializeObject(MyCreature);
-
-            //Preferences.Set("MyCreature", creatureString);
-
-            var dataStore = DependencyService.Get<IDataStore<Creature>>();
 
             updateTimer = new System.Timers.Timer
             {
@@ -107,15 +96,13 @@ namespace Tomogachi
         {
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
             string CreatureNamePulled = Preferences.Get(CreatureName, null);
+            OnPropertyChanged(nameof(CreatureName));
 
-            if (CreatureNamePulled != null)
+            if (CreatureNamePulled != null && DataBaseUpdateBuffer <= 0)
             {
-                dataStore.UpdateItem(MyCreature, IsSleeping);
-                Debug.WriteLine(CreatureName);
-                OnPropertyChanged(nameof(CreatureName));
-
+                dataStore.UpdateItem(MyCreature);
+                DataBaseUpdateBuffer = 10;
             }
-            //CreatureFromDatabase = await TestDataStore.ReadItem("2");
 
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
             MyCreature.Hunger -= 1f / 600f;
@@ -133,8 +120,7 @@ namespace Tomogachi
                 MyCreature.tired -= .1f;
             }
 
-
-
+            DataBaseUpdateBuffer--;
         }
         private void NavigateToPage<TPage>(Func<MainPage, TPage> pageFactory) where TPage : Page
         {
@@ -217,7 +203,11 @@ namespace Tomogachi
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            LoadCreature();
+            if (MyCreature.Name != null)
+            {
+                LoadCreature();
+
+            }
         }
         public async void LoadCreature()
         {
@@ -225,7 +215,6 @@ namespace Tomogachi
             //Ik heb dit gehard code omdat ik niet van plan ben mensen meerdere creatures te laten maken aan het begin
             // en omdat het checken een stuk makkelijker wordt.
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
-            Debug.WriteLine($"{MyCreature.Name}");
 
             string existingCreatureName = Preferences.Get("CreatureName", null);
             if (!string.IsNullOrEmpty(existingCreatureName))
@@ -242,7 +231,7 @@ namespace Tomogachi
             else
             {
                 //als de naam nog niet bestaat dan gaan we een nieuwe creaturemaken met de juiste naam
-                Navigation.PushAsync(new CreateName(MyCreature, this));
+                Navigation.PushAsync(new CreateName(this));
             }
         }
 

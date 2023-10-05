@@ -63,7 +63,7 @@ namespace Tomogachi
             return null;
         }
 
-        public bool UpdateItem(Creature Item, bool IsSleeping)
+        public bool UpdateItem(Creature Item)
         {
             throw new NotImplementedException();
         }

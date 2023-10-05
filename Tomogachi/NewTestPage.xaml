@@ -65,12 +65,12 @@
                 Source="thirst.png"
                 WidthRequest="20" />
         </Grid>
-        <Frame Padding="20">
+        <Frame Padding="20" Background="aliceblue">
             <Image
                 HeightRequest="200"
                 HorizontalOptions="Center"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="food.png" />
+                SemanticProperties.Description="it's da creature"
+                Source="creature.png" />
         </Frame>
 
         <Grid>
@@ -78,19 +78,32 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid.RowSpacing set="20" />
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <Button
-                x:Name="Food"
-                Grid.Row="1"
-                Grid.Column="0"
-                Clicked="OnbuttonClicked"
-                HorizontalOptions="Start"
-                SemanticProperties.Hint="use this for replenteshing the hunger"
-                Text="Food" />
+        <ImageButton
+            x:Name="Food"
+            Grid.Row="2"
+            Grid.Column="2"
+            Clicked="OnbuttonClicked"
+            HeightRequest="100"
+            HorizontalOptions="End"
+            SemanticProperties.Hint="use this for replenteshing the hunger"
+            Source="food.png"
+            WidthRequest="100" />
+        <ImageButton
+            x:Name="Drinking"
+            Grid.Row="2"
+            Grid.Column="0"
+            Clicked="OnDrinkingbuttonClicked"
+            HeightRequest="100"
+            HorizontalOptions="Start"
+            SemanticProperties.Hint="use this for replenteshing the hunger"
+            Source="thirst.png"
+            WidthRequest="100" />
 
         </Grid>
         <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />

@@ -10,7 +10,7 @@ namespace Tomogachi
     {
         Task<bool> CreateItem(T Data, string StorageKey);
         bool DeleteItem(T Item);
-        bool UpdateItem(T Item, bool IsSleeping);
+        bool UpdateItem(T Item);
         public Task<T> ReadItem(string id);
 
     }

@@ -49,10 +49,9 @@ namespace Tomogachi
             return Task.FromResult(creature);
         }
 
-        public bool UpdateItem(Creature Item, bool IsSleeping)
+        public bool UpdateItem(Creature Item)
         {
             string itemText = Preferences.Get(Item.Name, "");
-            Debug.WriteLine(Item.Name);
 
             if (string.IsNullOrEmpty(itemText))
             {
