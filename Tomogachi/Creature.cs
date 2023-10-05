@@ -13,7 +13,6 @@ namespace Tomogachi
         public float Hunger { get; set; } = 1f;
         public float Thirst { get; set; } = 1f;
         public float Boredom { get; set; } = 0f;
-        //ik heb loneliness verkeerd geschreven, maar ik heb het nu op zoveel plekken in mn script zitten, dat ik bang ben dat ik mn code breek als ik het nu nog aanpas.
         public float Loneliness { get; set; } = .5f;
         public float Tired { get; set; } = 1f;
         public bool Sleeping { get; set; } = false;
