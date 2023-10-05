@@ -79,17 +79,20 @@ namespace Tomogachi
                 const float hungerDecayPerHour = 0.1f;
                 const float thirstDecayPerHour = 0.15f;
                 const float IsSleepingAdded = 1f;
+                const float SlowlyGettingLonely = .1f;
 
                 // kijk hoeveel er van af moet. als er een nog op seconde staat dan kan je goed zien of het werkt
                 float hungerDecay = (float)elapsedTime.TotalSeconds * hungerDecayPerHour;
                 float thirstDecay = (float)elapsedTime.TotalHours * thirstDecayPerHour;
                 float SleepOffline = (float)elapsedTime.TotalHours * IsSleepingAdded;
+                float OfflineLoneliness = (float)elapsedTime.TotalHours * SlowlyGettingLonely;
 
                 Debug.WriteLine("hungerdecay" +  hungerDecay);
 
                 //verander de stats
                 myCreature.Hunger -= hungerDecay;
                 myCreature.Thirst -= thirstDecay;
+                myCreature.Loneliness -= OfflineLoneliness;
 
                 if (myCreature.Sleeping)
                 {
@@ -100,6 +103,7 @@ namespace Tomogachi
                 myCreature.Hunger = Math.Max(0, myCreature.Hunger);
                 myCreature.Thirst = Math.Max(0, myCreature.Thirst);
                 myCreature.Tired = Math.Max(0, myCreature.Tired);
+                myCreature.Loneliness = Math.Max(0, myCreature.Loneliness);
 
                 // Update creature in de database
                 dataStore.UpdateItem(myCreature);

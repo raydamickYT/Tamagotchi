@@ -118,6 +118,9 @@ namespace Tomogachi
             HungerLevel = MyCreature.Hunger;
             MyCreature.Hunger = Math.Max(0, MyCreature.Hunger);
 
+            MyCreature.Loneliness += 1f / 600f;
+            MyCreature.Loneliness = Math.Max(0, MyCreature.Loneliness);
+
             MyCreature.Thirst -= 1 / 600f;
             ThirstLevel = MyCreature.Thirst;
             MyCreature.Thirst = Math.Max(0, MyCreature.Thirst);
