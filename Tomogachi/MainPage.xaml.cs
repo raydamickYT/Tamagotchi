@@ -105,6 +105,17 @@ namespace Tomogachi
         }
         private async void OnUpdateTimerElapsed(object sender, ElapsedEventArgs e)
         {
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+            string CreatureNamePulled = Preferences.Get(CreatureName, null);
+
+            if(CreatureNamePulled != null)
+            {
+                dataStore.UpdateItem(MyCreature, IsSleeping);
+                var ReadName = await dataStore.ReadItem(CreatureName);
+                Debug.WriteLine(CreatureName);
+                //start updating the creature (eerst hier dan in de update functie
+
+            }
             //CreatureFromDatabase = await TestDataStore.ReadItem("2");
 
             //ik wil dat de stat na ongeveer 10 minuten vol is, dus door 1/600 e toe te voegen iedere seconde kom ik daar op uit
@@ -230,16 +241,12 @@ namespace Tomogachi
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var dataStore = DependencyService.Get<IDataStore<Creature>>();
-            // string CreatureName = dataStore.Get("creature_name", null);
+            bool ContainsKey = Preferences.ContainsKey(CreatureName);
 
-            if (MyCreature.Name == "Vincent")
+            if (!ContainsKey) 
             {
                 await Navigation.PushAsync(new CreateName(MyCreature, this));
             }
-            var result = await dataStore.CreateItem(MyCreature, MyCreature.Name);
-            //dataStore.UpdateItem(MyCreature, IsSleeping);
-            var ReadName = await dataStore.ReadItem(MyCreature.Name);
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

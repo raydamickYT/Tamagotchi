@@ -26,6 +26,12 @@ namespace Tomogachi
 
         public bool DeleteItem(Creature Item)
         {
+            bool keyExists = Preferences.ContainsKey(Item.Name);
+            if (keyExists)
+            {
+                Preferences.Remove(Item.Name);
+                return true;
+            }
             return false;
         }
 
@@ -41,8 +47,17 @@ namespace Tomogachi
         {
             string itemText = Preferences.Get(Item.Name, "");
 
-            Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
-            creature.Name = Item.Name;
+            if (itemText != null)
+            {
+                Creature creature = JsonConvert.DeserializeObject<Creature>(itemText);
+                creature.Hunger = Item.Hunger;
+                creature.Thirst = Item.Thirst;
+                creature.boredom = Item.boredom;
+                creature.tired = Item.tired;
+                string UpdatedCreatureString = JsonConvert.SerializeObject(creature);
+                Preferences.Set(Item.Name, UpdatedCreatureString);
+                return true;
+            }
             return false;
         }
     }
