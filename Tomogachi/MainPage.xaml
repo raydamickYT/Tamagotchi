@@ -24,16 +24,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-
-                <!--<Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    BackgroundColor="Transparent"
-                    FontSize="16"
-                    HorizontalOptions="StartAndExpand"
-                    Text="{Binding HungerText, Mode=OneWay}"
-                    VerticalOptions="CenterAndExpand" />-->
 
                 <ProgressBar
                     x:Name="HungerBar"
@@ -64,16 +57,6 @@
                     SemanticProperties.Description="Cute dot net bot waving hi to you!"
                     Source="food.png"
                     WidthRequest="20" />
-
-                <!--<Label
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    BackgroundColor="Transparent"
-                    FontSize="16"
-                    HorizontalOptions="StartAndExpand"
-                    SemanticProperties.HeadingLevel="Level2"
-                    Text="{Binding ThirstText, Mode=OneWay}"
-                    VerticalOptions="CenterAndExpand" />-->
 
                 <ProgressBar
                     x:Name="ThirstBar"
@@ -107,8 +90,26 @@
                     Grid.Row="4"
                     Grid.Column="0"
                     Text="{Binding LonelyLevel, Mode=OneWay}" />
+                <!--  ik weet oprecht niet waarom dit niet showd, de bindings werken gewoon.  -->
+                <Label
+                    x:Name="Tired"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="{Binding Tiredness, Mode=OneWay}" />
+                <Label
+                    x:Name="Entertained"
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    Text="{Binding EntertainmentLevel, Mode=OneWay}" />
+
             </Grid>
-            <Label x:Name="Tired" Text="{Binding Tiredness, Mode=OneWay}" />
+            <Label
+                Margin="0,20,0,0"
+                FontSize="26"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2"
+                Text="{Binding CreatureName, StringFormat='CreatureName: {0}!', Mode=OneWay}"
+                TextColor="Grey" />
 
             <Frame Margin="0,30,0,0" Padding="20">
 
@@ -122,49 +123,6 @@
 
             </Frame>
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="{Binding CreatureName, Mode=OneWay}"
-                TextColor="White" />
-
-            <!--<Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="200" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <Button
-                    x:Name="CounterBtn"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Clicked="TestButtonClicked"
-                    SemanticProperties.Hint="Maakt een creature in de cloud aan"
-                    Text="Feed The Creature" />
-                <Button
-                    x:Name="CreateCreatureOnline"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Clicked="Button_Clicked"
-                    SemanticProperties.Hint="Maakt een creature in de local db aan"
-                    Text="MakeCreature" />
-                <Button
-                    x:Name="EntertainCreature"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Clicked="OnEntertainmentButtonClicked"
-                    SemanticProperties.Hint="gaat naar de pagina die de creature entertained."
-                    Text="Entertain" />
-
-
-            </Grid>-->
             <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
             <tomogachi:NewContent1 ViewName="Mainpage" />
         </VerticalStackLayout>

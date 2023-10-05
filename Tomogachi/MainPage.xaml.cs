@@ -195,28 +195,6 @@ namespace Tomogachi
             Navigation.PushAsync(new Entertainment(this));
         }
 
-        //private async void OnCounterClicked(object sender, EventArgs e)
-        //{
-        //    count += 1;
-
-        //    if (count == 1)
-        //    {
-        //        CounterBtn.Text = $"Clicked {count} time";
-        //    }
-        //    else
-        //    {
-        //        CounterBtn.Text = $"Clicked {count} times";
-        //    }
-
-        //    //50 is in a unit relative to the device's display.
-        //    await CounterBtn.RelRotateTo(90.0, 1000, Easing.SpringIn);
-        //    await CounterBtn.TranslateTo(.0, 50.0, 1000);
-        //    await CounterBtn.TranslateTo(.0, -50.0, 1000);
-        //    await CounterBtn.ScaleTo(10, 1000, Easing.BounceIn);
-
-        //    SemanticScreenReader.Announce(CounterBtn.Text);
-        //}
-
         void TestButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NewTestPage(this));

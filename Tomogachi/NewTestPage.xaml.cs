@@ -13,10 +13,10 @@ public partial class NewTestPage : ContentPage
         HungerBar.BindingContext = _mainPage;
         ThirstBar.BindingContext = _mainPage;
 
-        ProgressBarHealth.EntertainmentButtonClicked += EntertainmentButton;
-        ProgressBarHealth.FeedingButtonClicked += FeedingPageButton;
-        ProgressBarHealth.MainPageButtonClicked += MainPageButton;
-        ProgressBarHealth.BedRoomButtonClicked += BedRoomButton;
+        Buttons.EntertainmentButtonClicked += EntertainmentButton;
+        Buttons.FeedingButtonClicked += FeedingPageButton;
+        Buttons.MainPageButtonClicked += MainPageButton;
+        Buttons.BedRoomButtonClicked += BedRoomButton;
     }
     private void NavigateToPage<TPage>(Func<MainPage, TPage> pageFactory) where TPage : Page
     {
@@ -70,7 +70,7 @@ public partial class NewTestPage : ContentPage
 
     void OnDrinkingbuttonClicked(object sender, EventArgs e)
     {
-        Debug.WriteLine(mainPage.MyCreature.Thirst);
+        Debug.WriteLine(mainPage.MyCreature.Hunger);
         mainPage.MyCreature.Thirst += .1f;
         mainPage.MyCreature.Thirst = Math.Min(mainPage.MyCreature.Thirst, 1f);
     }

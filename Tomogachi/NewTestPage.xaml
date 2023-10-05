@@ -84,29 +84,29 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-        <ImageButton
-            x:Name="Food"
-            Grid.Row="2"
-            Grid.Column="2"
-            Clicked="OnbuttonClicked"
-            HeightRequest="100"
-            HorizontalOptions="End"
-            SemanticProperties.Hint="use this for replenteshing the hunger"
-            Source="food.png"
-            WidthRequest="100" />
-        <ImageButton
-            x:Name="Drinking"
-            Grid.Row="2"
-            Grid.Column="0"
-            Clicked="OnDrinkingbuttonClicked"
-            HeightRequest="100"
-            HorizontalOptions="Start"
-            SemanticProperties.Hint="use this for replenteshing the hunger"
-            Source="thirst.png"
-            WidthRequest="100" />
+            <ImageButton
+                x:Name="Food"
+                Grid.Row="2"
+                Grid.Column="2"
+                Clicked="OnbuttonClicked"
+                HeightRequest="100"
+                HorizontalOptions="End"
+                SemanticProperties.Hint="use this for replenteshing the hunger"
+                Source="food.png"
+                WidthRequest="100" />
+            <ImageButton
+                x:Name="Drinking"
+                Grid.Row="2"
+                Grid.Column="0"
+                Clicked="OnDrinkingbuttonClicked"
+                HeightRequest="100"
+                HorizontalOptions="Start"
+                SemanticProperties.Hint="use this for replenteshing the hunger"
+                Source="thirst.png"
+                WidthRequest="100" />
 
         </Grid>
-        <tomogachi:ProgressBarHealth x:Name="ProgressBarHealth" />
+        <tomogachi:ProgressBarHealth x:Name="Buttons" Margin="0,-50,0,0" />
 
     </VerticalStackLayout>
 </ContentPage>
